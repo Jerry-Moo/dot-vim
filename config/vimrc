@@ -69,6 +69,7 @@ call etc#util#source_file('config/mappings.vim')
 
 " Initialize user favorite colorscheme
 call theme#init()
+call etc#util#source_file('config/color.vim')
 
 
 " Disable vim distribution plugins

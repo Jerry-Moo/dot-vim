@@ -4,4 +4,3 @@
 # StartUp Plugins
 - repo: Shougo/dein.vim
   #- repo: taigacute/spaceline.vim # 状态栏 需要 nerd font 字体支持
-- repo: rafi/awesome-vim-colorschemes
