@@ -40,9 +40,16 @@ if has('vim_starting')
     " User spacebar as leader 
     " Required before loading plugins!
     let g:mapleader = "\<Space>"
+    let g:maplocalleader=";"
+
     " Release keymappings prefixes, evict entirely for use of plug-ins.
 	nnoremap <Space>  <Nop>
 	xnoremap <Space>  <Nop>
+    nnoremap ,        <Nop>
+    xnoremap ,        <Nop>
+    nnoremap ;        <Nop>
+    xnoremap ;        <Nop>
+
     if ! has('nvim') && has('pythonx')
         if has('python3')
             set pyxversion=3

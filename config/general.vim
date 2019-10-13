@@ -65,7 +65,7 @@ set history=1000
         set completeopt-=preview
         " zz zt zb 保持2行
         set scrolloff=2         " Keep at least 2 lines above/below
-        set sidescrolloff=5     " Keep at least 5 lines left/right
+        set sidescrolloff=2     " Keep at least 2 lines left/right
 
 
 " Tabs and Indents 标签和缩进
@@ -80,21 +80,21 @@ set history=1000
 
 " vim编辑器用户界面外观
         set hidden              " 使得不可见的缓冲区保持载入
-        set shortmess=aFc
+        set shortmess=aFc       " 显示开屏系统版本信息
         set confirm             " when deal with unsaved files ask what to do
         set showtabline=2       " 始终显示标签行
         set laststatus=2        " 总是显示底部状态行
-        set statusline=-        " hide file name in statusline 隐藏侧边栏
+        set statusline=-        " hide file name in statusline 隐藏侧边栏 一般 git 代码检查
         set fillchars+=vert:\|  " add a bar for vertical splits 添加垂直分隔条
         if get(g:,'gruvbox_transp_bg',1)
             set fcs=eob:\           " hide ~
         endif
         set signcolumn=yes      " 总是显示左边git error 状态栏
         set list                " 自定义tab显示样式
-        " set showbreak=↪       " 换行前聚
+        " set showbreak=↪       " 换行前聚 
         set listchars=tab:\▏\ ,extends:⟫,precedes:⟪,nbsp:␣,trail:·
         " 底部cmd 消息尺寸
-        set cmdheight=3         " Height of the command line
+        set cmdheight=2         " Height of the command line
         set cmdwinheight=5      " Command-line lines
         " 设置分割窗口尺寸
         set winwidth=30         " Minimum width for active window
@@ -102,7 +102,7 @@ set history=1000
         set winheight=4         " Minimum height for active window
         set winminheight=1      " Minimum height for inactive window
         set equalalways         " 在拆分或关闭时调整窗口大小
-        set colorcolumn=80      " Highlight the 80th character limit
+        set colorcolumn=120      " Highlight the 80th character limit
         " 弹出菜单的行数
         set pumheight=15        " Pop-up menu's line height
         set helpheight=12       " Minimum help window height
@@ -134,22 +134,22 @@ set history=1000
             " syntax    使用语法定义折叠
             " diff      对没有更改的文本进行折叠
             " marker    使用标记进行折叠, 默认标记是 {{{ 和 }}}
-            set foldmethod=indent " 语法高亮来定义折叠
+            set foldmethod=syntax " 语法高亮来定义折叠
             set foldlevelstart=99  " 关闭vim默认折叠
         endif
 
 
 " Search 搜索
-        set ignorecase      " Search ignoring case " 搜索时大小写不敏感
-        set smartcase       " Keep case when searching with * " 搜索时保存记录
-        set infercase       " Adjust case in insert completion mode " 关键字自动补全的匹配调整大小写
-        set incsearch       " Incremental search " 输入的过程中就开始搜索
-        set hlsearch        " Highlight search results " highlight 搜索结果
+        set ignorecase      " 搜索时大小写不敏感
+        set smartcase       " 搜索时保存记录
+        set infercase       " 关键字自动补全的匹配调整大小写
+        set incsearch       " 输入的过程中就开始搜索
+        set hlsearch        " highlight 搜索结果
         set wrapscan        " Searches wrap around the end of the file
-        set showmatch       " Jump to matching bracket " 显示匹配的括号 闪烁0.5秒
-        set matchpairs+=<:> " Add HTML brackets to pair matching " HTML文本括号匹配
-        set matchtime=1     " Tenths of a second to show the matching paren " 1/10 秒闪烁时间
-        set cpoptions-=m    " showmatch will wait 0.5s or until a char is typed " showmatch 闪烁0.5 until 新的输入
+        set showmatch       " 显示匹配的括号 闪烁0.5秒
+        set matchpairs+=<:> " HTML文本括号匹配
+        set matchtime=1     " 1/10 秒闪烁时间
+        set cpoptions-=m    " showmatch 闪烁0.5 until 新的输入
         set showfulltag     " Show tag and tidy search in completion 完成显示标签和整洁的搜索
         set grepprg=rg\ --vimgrep\ $*
 
@@ -203,8 +203,8 @@ set sessionoptions+=tabpages
 " Vim Directories
 set undofile swapfile backup
 set directory=$DATA_PATH/swap//,$DATA_PATH,~/tmp,/var/tmp,/tmp
-set undodir=$DATA_PATH/undos//,$DATA_PATH,~/tmp,/var/tmp,/tmp
-set backupdir=$DATA_PATH/backups//,$DATA_PATH,~/tmp,/var/tmp,/tmp
+set undodir=$DATA_PATH/undo//,$DATA_PATH,~/tmp,/var/tmp,/tmp
+set backupdir=$DATA_PATH/backup//,$DATA_PATH,~/tmp,/var/tmp,/tmp
 set viewdir=$DATA_PATH/view/
 if has('nvim')
     set shada='300,<50,@100,s10,h
