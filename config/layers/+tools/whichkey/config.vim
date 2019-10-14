@@ -87,7 +87,7 @@ let g:which_key_rsbgmap = {
     \   'c': 'coc nextdiagnostics',
     \   'g'    : 'coc gitnextchunk',
     \   ']'    : 'jump prefunction-golang',
-}
+    \ }
 
 let g:which_key_lsbgmap = {
       \ 'name' : 'Left Squarebrackets',

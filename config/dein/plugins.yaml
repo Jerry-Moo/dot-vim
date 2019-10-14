@@ -217,10 +217,10 @@
 - { repo: kana/vim-textobj-user , on_func: textobj#user# }  
 # 增加行文本对象: l   dal yal cil
 - repo: kana/vim-textobj-line  
-  depends: kana/vim-textobj-user
+  depends: vim-textobj-user
 # 增加文件文本对象: e   dae yae cie 
 - repo: kana/vim-textobj-entire 
-  depends: kana/vim-textobj-user
+  depends: vim-textobj-user
 # 增加缩进文本对象: i   dai yai cii - 相同缩进属于同一块
 - repo: kana/vim-textobj-indent 
-  depends: kana/vim-textobj-user
+  depends: vim-textobj-user
