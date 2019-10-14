@@ -4,13 +4,13 @@
 # StartUp Plugins
 - repo: Shougo/dein.vim
   # 状态栏 需要 nerd font 字体支持
-- repo: taigacute/spaceline.vim 
-- repo: bagrat/vim-buffet
-  hook_add: source $VIM_PATH/config/layers/+ui/buffet/config.vim
+  # - repo: taigacute/spaceline.vim 
+  # - repo: bling/vim-bufferline
+- repo: vim-airline/vim-airline
+  hook_source: source $VIM_PATH/config/layers/+ui/vim-airline/config.vim
+- repo: vim-airline/vim-airline-themes
   # 光标下划线
-- repo: itchyny/vim-cursorword 
-
-
+# - repo: itchyny/vim-cursorword 
 
   # Code Completions
 - repo: neoclide/coc.nvim
@@ -20,15 +20,6 @@
 
 - repo: honza/vim-snippets
   depends: coc.nvim
-
-
-# Denite
-# - repo: Shougo/denite.nvim
-#   on_cmd: Denite
-#   depends: vim-devicons
-#   hook_source: |
-#       source $VIM_PATH/config/layers/+completions/denite/config.vim
-#       source $VIM_PATH/config/layers/+completions/denite/denite_menu.vim
 
 # IDE features
 - repo: ryanoasis/vim-devicons # icons
@@ -67,6 +58,7 @@
   hook_source: source $VIM_PATH/config/layers/+tools/whichkey/config.vim
   hook_post_source: |
       call which_key#register('<Space>', 'g:which_key_map')
+      call which_key#register(';', 'g:which_key_localmap')
       call which_key#register(']', 'g:which_key_rsbgmap')
       call which_key#register('[', 'g:which_key_lsbgmap')
 
@@ -110,8 +102,6 @@
 - { repo: tpope/vim-surround }      
   # j/k 快速移动
 - { repo: rhysd/accelerated-jk, on_map: { n: <Plug> } }
-  #  多光标选中编辑
-- { repo: terryma/vim-multiple-cursors, on_map: { n: <Plug> }}    
 - repo: ludovicchabant/vim-gutentags
   if: executable('ctags')
   on_path: .*
@@ -149,14 +139,15 @@
 
 - { repo: honza/dockerfile.vim, on_ft: Dockerfile} # dockerfile syntax support
 - repo: scrooloose/nerdcommenter    # 快捷注释
-  on_ft: [vim,json,go,html,js,jsx,py,css,less,tmpl,toml,xml,sql,Dockerfile]
+  on_ft: [vim,json,go,html,js,jsx,py,css,less,tmpl,toml,xml,sql,Dockerfile,yaml]
   hook_source: |
     let g:NERDSpaceDelims=1
 
 - { repo: cespare/vim-toml, on_ft: toml }          # toml syntax support
 - { repo: vim-scripts/xml.vim, on_ft: xml}         # xml syntax support
 - { repo: pearofducks/ansible-vim, on_ft: [ yaml.ansible, ansible_hosts ]}    # yaml syntax support
-- repo: elzr/vim-json         # json syntax support
+  # json syntax support
+- repo: elzr/vim-json         
   on_ft: json
   hook_add: let g:vim_json_syntax_conceal = 0
 
@@ -178,11 +169,11 @@
 # Coding
 
   # echodoc.vim 函数提醒  vim-go 
-- repo: Shougo/echodoc.vim    
-  on_event: CompleteDone
-  hook_source: |
-        call echodoc#enable()
-        let g:echodoc#type = "virtual"
+  # - repo: Shougo/echodoc.vim    
+  # on_event: CompleteDone
+  # hook_source: |
+        # call echodoc#enable()
+        # let g:echodoc#type = "virtual"
 
 - repo: sbdchd/neoformat
   on_cmd: [Neoformat,Neoformat!]
@@ -214,6 +205,8 @@
 # Text Object Operator
 
 # 支持自定义文本对象
+  #  多光标选中编辑
+- { repo: terryma/vim-multiple-cursors }    
 - { repo: kana/vim-textobj-user , on_func: textobj#user# }  
 # 增加行文本对象: l   dal yal cil
 - repo: kana/vim-textobj-line  

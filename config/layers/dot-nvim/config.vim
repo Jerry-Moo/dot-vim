@@ -136,13 +136,13 @@ if dein#tap('vim-easymotion')
 endif
 
 if dein#tap('vim-go')
-    nnoremap <silent> <localleader>gi <Plug>(go-implements)
-    nnoremap <silent> <localleader>gd <Plug>(go-describe)
-    nnoremap <silent> <localleader>gc <Plug>(go-callees)
-    nnoremap <silent> <localleader>gC <Plug>(go-callers)
-    nnoremap <silent> <localleader>gs <Plug>(go-callstack)
-    nnoremap <silent> <localleader>gr <Plug>(go-run)
-    nnoremap <silent> <localleader>gv <Plug>(go-vet)
+    nnoremap <silent> <localleader>gi :GoImpl<CR>
+    nnoremap <silent> <localleader>gd :GoDescribe<CR>
+    nnoremap <silent> <localleader>gc :GoCallees<CR>
+    nnoremap <silent> <localleader>gC :GOCallers<CR>
+    nnoremap <silent> <localleader>gs :GoCallstack<CR>
+    nnoremap <silent> <localleader>gr :GoRun<CR>
+    nnoremap <silent> <localleader>gv :GoVet<CR>
 endif
 
 if dein#tap('vim-mundo')

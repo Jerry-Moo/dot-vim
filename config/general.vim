@@ -39,8 +39,8 @@ endif
 set history=1000
 " Timing
         set timeout ttimeout
-        set timeoutlen=750  " Time out on mappings
-        set updatetime=400 " Idle time to write swap and trigger CursorHold
+        set timeoutlen=100  " Time out on mappings
+        set updatetime=100 " Idle time to write swap and trigger CursorHold
         set ttimeoutlen=10  " Time out on key codes
 
 "==============================================================================
