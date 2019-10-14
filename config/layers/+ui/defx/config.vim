@@ -9,7 +9,7 @@ call defx#custom#option('_', {
 
 call defx#custom#column('filename', {
 	\ 'min_width': 5,
-	\ 'max_width': 25,
+	\ 'max_width': 30,
 	\ })
 
 " Events
