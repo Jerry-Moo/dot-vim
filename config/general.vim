@@ -39,7 +39,7 @@ endif
 set history=1000
 " Timing
         set timeout ttimeout
-        set timeoutlen=100  " Time out on mappings
+        set timeoutlen=500  " Time out on mappings
         set updatetime=100 " Idle time to write swap and trigger CursorHold
         set ttimeoutlen=10  " Time out on key codes
 
@@ -64,8 +64,8 @@ set history=1000
         set completeopt+=menu
         set completeopt-=preview
         " zz zt zb 保持2行
-        set scrolloff=2         " Keep at least 2 lines above/below
-        set sidescrolloff=2     " Keep at least 2 lines left/right
+        " set scrolloff=2         " Keep at least 2 lines above/below
+        " set sidescrolloff=2     " Keep at least 2 lines left/right
 
 
 " Tabs and Indents 标签和缩进

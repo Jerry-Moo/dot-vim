@@ -4,8 +4,6 @@
 # StartUp Plugins
 - repo: Shougo/dein.vim
   # 状态栏 需要 nerd font 字体支持
-  # - repo: taigacute/spaceline.vim 
-  # - repo: bling/vim-bufferline
 - repo: vim-airline/vim-airline
   hook_source: source $VIM_PATH/config/layers/+ui/vim-airline/config.vim
 - repo: vim-airline/vim-airline-themes
@@ -22,6 +20,10 @@
   depends: coc.nvim
 
 # IDE features
+
+# - repo: kizza/actionmenu.nvim
+  # on_path: .*
+
 - repo: ryanoasis/vim-devicons # icons
   hook_add: let g:webdevicons_enable_denite = 1
 
@@ -168,7 +170,7 @@
 
 # Coding
 
-  # echodoc.vim 函数提醒  vim-go 
+  # echodoc.vim 函数提醒 coc.nvim 本身提供函数提醒功能 btw golang 开启此功能贼卡 带坑
   # - repo: Shougo/echodoc.vim    
   # on_event: CompleteDone
   # hook_source: |

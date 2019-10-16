@@ -60,7 +60,7 @@ nnoremap <C-y> 2<C-y>
 
 " Improve scroll, credits: https://github.com/Shougo
 nnoremap <expr> zz (winline() == (winheight(0)+1) / 2) ?
-	\ 'zt' : (winline() == 3) ? 'zb' : 'zz'
+	\ 'zt' : (winline() == 1) ? 'zb' : 'zz'
 
 
 " 代码折叠自定义快捷键 <leader>b
