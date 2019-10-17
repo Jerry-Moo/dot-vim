@@ -64,8 +64,8 @@ set history=1000
         set completeopt+=menu
         set completeopt-=preview
         " zz zt zb 保持2行
-        " set scrolloff=2         " Keep at least 2 lines above/below
-        " set sidescrolloff=2     " Keep at least 2 lines left/right
+        set scrolloff=2         " Keep at least 2 lines above/below
+        set sidescrolloff=2     " Keep at least 2 lines left/right
 
 
 " Tabs and Indents 标签和缩进
@@ -123,7 +123,7 @@ set history=1000
                 set relativenumber
             endif
         endfunc
-        nnoremap <C-m> :call NumberToggle()<cr>
+        noremap <C-m> :call NumberToggle()<cr>
 
         if has('folding')
             set foldenable " 允许折叠
@@ -134,7 +134,7 @@ set history=1000
             " syntax    使用语法定义折叠
             " diff      对没有更改的文本进行折叠
             " marker    使用标记进行折叠, 默认标记是 {{{ 和 }}}
-            set foldmethod=syntax " 语法高亮来定义折叠
+            set foldmethod=indent " 语法高亮来定义折叠
             set foldlevelstart=99  " 关闭vim默认折叠
         endif
 

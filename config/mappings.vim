@@ -60,12 +60,12 @@ nnoremap <C-y> 2<C-y>
 
 " Improve scroll, credits: https://github.com/Shougo
 nnoremap <expr> zz (winline() == (winheight(0)+1) / 2) ?
-	\ 'zt' : (winline() == 1) ? 'zb' : 'zz'
+	\ 'zt' : (winline() == 3) ? 'zb' : 'zz'
 
 
 " 代码折叠自定义快捷键 <leader>b
 let g:FoldMethod = 0
-nnoremap <leader>b :call ToggleFold()<cr>
+nnoremap <leader>b :call ToggleFold()<CR>
 fun! ToggleFold()
     if g:FoldMethod == 0
         exe "normal! zM"
