@@ -1,9 +1,9 @@
 " Vim Colors
 " ---------------------------------------------------------
 hi Whitespace ctermfg=96 guifg=#725972 guibg=NONE ctermbg=NONE
-hi VertSplit  ctermfg=Black  guifg=Black
+hi VertSplit  ctermfg=Black  guifg=Black guibg=NONE ctermbg=NONE
 "hi Normal guibg=NONE ctermbg=NONE
-"hi LineNr ctermbg=NONE guibg=NONE
+hi LineNr ctermbg=NONE guibg=NONE
 hi SignColumn ctermfg=187 ctermbg=NONE guifg=#ebdbb2 guibg=NONE guisp=NONE cterm=NONE gui=NONE
 highlight! link pythonSpaceError  NONE
 highlight! link pythonIndentError NONE
@@ -11,7 +11,11 @@ highlight! link pythonIndentError NONE
 
 "Pmenu Colors
 " ---------------------------------------------------------
-hi PMenuSel ctermfg=252 ctermbg=106 guifg=#d0d0d0 guibg=#859900 guisp=#859900 cterm=NONE gui=NONE
+" hi PMenuSel ctermfg=252 ctermbg=106 guifg=#d0d0d0 guibg=#ba8baf guisp=#ba8baf cterm=NONE gui=NONE
+hi Pmenu ctermfg=103 ctermbg=236 guifg=#9a9aba guibg=#34323e guisp=NONE cterm=NONE gui=NONE
+hi PmenuSbar ctermfg=NONE ctermbg=234 guifg=NONE guibg=#212026 guisp=NONE cterm=NONE gui=NONE
+hi PmenuSel ctermfg=NONE ctermbg=60 guifg=NONE guibg=#5e5079 guisp=NONE cterm=NONE gui=NONE
+hi PmenuThumb ctermfg=NONE ctermbg=60 guifg=NONE guibg=#5d4d7a guisp=NONE cterm=NONE gui=NONE
 
 "coc setting
 " ---------------------------------------------------------

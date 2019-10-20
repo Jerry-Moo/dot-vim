@@ -3,16 +3,21 @@
 #
 # StartUp Plugins
 - repo: Shougo/dein.vim
+- repo: wsdjeg/dein-ui.vim
+  depends: dein.vim
+
   # 状态栏 需要 nerd font 字体支持
 - repo: vim-airline/vim-airline
-  hook_source: source $VIM_PATH/config/layers/+ui/vim-airline/config.vim
 - repo: vim-airline/vim-airline-themes
+  depends: vim-airline
+  hook_add: source $VIM_PATH/config/layers/+ui/vim-airline/config.vim
+
   # 光标下划线
 # - repo: itchyny/vim-cursorword 
 
   # Code Completions
 - repo: neoclide/coc.nvim
-  merge: 0 
+  merged: 0 
   rev: release
   hook_add: source $VIM_PATH/config/layers/+completions/coc/config.vim
 
@@ -20,9 +25,6 @@
   depends: coc.nvim
 
 # IDE features
-
-# - repo: kizza/actionmenu.nvim
-  # on_path: .*
 
 - repo: ryanoasis/vim-devicons # icons
   hook_add: let g:webdevicons_enable_denite = 1
@@ -107,7 +109,7 @@
 - repo: ludovicchabant/vim-gutentags
   if: executable('ctags')
   on_path: .*
-  hook_add: source $VIM_PATH/config/layers/+tools/vim-gutentags/config.vim
+  hook_source: source $VIM_PATH/config/layers/+tools/vim-gutentags/config.vim
   # 更高效的移动 [leader+f,leader+b,leader+w]
 - repo: easymotion/vim-easymotion   
   on_map: { n: <Plug> }
@@ -118,9 +120,9 @@
         let g:EasyMotion_smartcase = 1
         let g:EasyMotion_use_smartsign_us = 1
   # 更高效的行内移动, f/F/t/T, 才触发
-- repo: unblevable/quick-scope          
-  hook_source: |
-        let g:qs_highlight_on_keys = ['f', 'F', 't', 'T']
+# - repo: unblevable/quick-scope          
+  # hook_source: |
+        # let g:qs_highlight_on_keys = ['f', 'F', 't', 'T']
   # easyalign 快速赋值语句对齐
 - repo: junegunn/vim-easy-align      
   on_ft: [vim,json,go,html,js,jsx,py,css,less,tmpl,toml,xml,sql,Dockerfile]

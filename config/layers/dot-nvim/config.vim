@@ -7,32 +7,32 @@ endif
 if dein#tap('coc.nvim')
         " Using CocList
         " Show all diagnostics
-        nnoremap <silent> <leader>cd  :<C-u>CocList diagnostics<cr>
+        nnoremap <silent> <leader>kd  :<C-u>CocList diagnostics<cr>
         " Manage extensions
-        nnoremap <silent> <leader>ce  :<C-u>CocList extensions<cr>
+        nnoremap <silent> <leader>ke  :<C-u>CocList extensions<cr>
         " Show commands
-        nnoremap <silent> <leader>cc  :<C-u>CocList commands<cr>
+        nnoremap <silent> <leader>kc  :<C-u>CocList commands<cr>
         " Find symbol of current document
-        nnoremap <silent> <leader>co  :<C-u>CocList outline<cr>
+        nnoremap <silent> <leader>ko  :<C-u>CocList outline<cr>
         " Search workspace symbols
-        nnoremap <silent> <leader>cs  :<C-u>CocList -I symbols<cr>
+        nnoremap <silent> <leader>ks  :<C-u>CocList -I symbols<cr>
         " Do default action for next item.
-        nnoremap <silent> <leader>cj  :<C-u>CocNext<CR>
+        nnoremap <silent> <leader>kj  :<C-u>CocNext<CR>
         " Do default action for previous item.
-        nnoremap <silent> <leader>ck  :<C-u>CocPrev<CR>
+        nnoremap <silent> <leader>kk  :<C-u>CocPrev<CR>
         " Resume latest coc list
-        nnoremap <silent> <leader>cr  :<C-u>CocListResume<CR>
+        nnoremap <silent> <leader>kr  :<C-u>CocListResume<CR>
         " Use `[c` and `]c` for navigate diagnostics
         nmap <silent> ]c <Plug>(coc-diagnostic-prev)
         nmap <silent> [c <Plug>(coc-diagnostic-next)
         " Remap for rename current word
-        nmap <leader>cn <Plug>(coc-rename)
+        nmap <leader>kn <Plug>(coc-rename)
         " Remap for format selected region
-        vmap <leader>cf  <Plug>(coc-format-selected)
-        nmap <leader>cf  <Plug>(coc-format-selected)
+        vmap <leader>kf  <Plug>(coc-format-selected)
+        nmap <leader>kf  <Plug>(coc-format-selected)
         " Remap for do codeAction of selected region, ex: `<leader>aap` for current paragraph
-        xmap <leader>ca  <Plug>(coc-codeaction-selected)
-        nmap <leader>ca  <Plug>(coc-codeaction-selected)
+        xmap <leader>ka  <Plug>(coc-codeaction-selected)
+        nmap <leader>ka  <Plug>(coc-codeaction-selected)
         " Remap for do codeAction of current line
         nmap <leader>ac  <Plug>(coc-codeaction)
         " Fix autofix problem of current line
@@ -52,7 +52,7 @@ if dein#tap('coc.nvim')
         nmap gs <Plug>(coc-git-chunkinfo)
         " show commit contains current position
         nmap gm <Plug>(coc-git-commit)
-        nnoremap <silent> <leader>cg  :<C-u>CocList --normal gstatus<CR>
+        nnoremap <silent> <leader>kg  :<C-u>CocList --normal gstatus<CR>
         " float window scroll
         nnoremap <expr><C-f> coc#util#has_float() ? coc#util#float_scroll(1) : "\<C-f>"
         nnoremap <expr><C-b> coc#util#has_float() ? coc#util#float_scroll(0) : "\<C-b>"
@@ -70,8 +70,8 @@ if dein#tap('coc.nvim')
             return "*\<Plug>(coc-cursors-word):nohlsearch\<CR>"
         endfunc
 
-        nnoremap <silent> <leader>cm ::CocSearch -w 
-        nnoremap <silent> <leader>cw ::CocSearch  
+        nnoremap <silent> <leader>km ::CocSearch -w 
+        nnoremap <silent> <leader>kw ::CocSearch  
         " use normal command like `<leader>xi(`
         nmap <leader>x  <Plug>(coc-cursors-operator)
         " coc-explorer

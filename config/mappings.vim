@@ -75,3 +75,12 @@ fun! ToggleFold()
         let g:FoldMethod = 0
     endif
 endfun
+
+" noremap <C-m> :call NumberToggle()<cr>
+" function! NumberToggle()
+    " if(&relativenumber == 1)
+        " set norelativenumber number
+    " else
+        " set relativenumber
+    " endif
+" endfunc
