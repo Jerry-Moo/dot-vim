@@ -35,7 +35,7 @@
 
 - repo: mhinz/vim-startify
   depends: vim-devicons
-  hook_source: source $VIM_PATH/config/layers/+ui/startify/config.vim
+  hook_add: source $VIM_PATH/config/layers/+ui/startify/config.vim
   hook_post_source: |
       function! StartifyEntryFormat()
         return 'WebDevIconsGetFileTypeSymbol(absolute_path) ." ". entry_path'
