@@ -64,7 +64,8 @@ if has('vim_starting')
                 \  g:etc#cache_path . '/backup',
                 \  g:etc#cache_path . '/session',
                 \  g:etc#cache_path . '/view',
-                \  g:etc#cache_path . '/tags'
+                \  g:etc#cache_path . '/tags',
+								\  g:etc#cache_path . '/swap'
                 \]) 
 endif
 
