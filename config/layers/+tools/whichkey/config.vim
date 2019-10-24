@@ -78,7 +78,8 @@ let g:which_key_map = {
     \  'n': 'set number/relativenumber',
     \  'q': {
             \ 'name': 'quickrun',
-            \ 'r': 'QuickRun',
+            \ 'r': 'quick run',
+            \ 'f': 'coc fixcurrent',
             \ },
     \  't': {
             \ 'name': 'tab-operate',

@@ -7,10 +7,9 @@
   depends: dein.vim
 
   # 状态栏 需要 nerd font 字体支持
-- repo: vim-airline/vim-airline
-- repo: vim-airline/vim-airline-themes
-  depends: vim-airline
-  hook_add: source $VIM_PATH/config/layers/+ui/vim-airline/config.vim
+- repo: taigacute/spaceline.vim
+- repo: bagrat/vim-buffet
+  hook_add: source $VIM_PATH/config/layers/+ui/vim-buffet/config.vim
 
   # 光标下划线
 # - repo: itchyny/vim-cursorword 
@@ -207,7 +206,6 @@
   hook_source: source $VIM_PATH/config/layers/+ui/rainbow/config.vim
 
 # Text Object Operator
-
 # 支持自定义文本对象
   #  多光标选中编辑
 - { repo: terryma/vim-multiple-cursors }    

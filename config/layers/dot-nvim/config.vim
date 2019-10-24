@@ -6,6 +6,9 @@ endif
 
 if dein#tap('coc.nvim')
         " Using CocList
+        " Use `[c` and `]c` for navigate diagnostics
+        nmap <silent> ]c <Plug>(coc-diagnostic-prev)
+        nmap <silent> [c <Plug>(coc-diagnostic-next)
         " Remap for do codeAction of current line
         nmap <leader> ac  <Plug>(coc-codeaction)
         " Show all diagnostics 显示错误信息
@@ -24,9 +27,6 @@ if dein#tap('coc.nvim')
         nnoremap <silent> <leader> kk  :<C-u>CocPrev<CR>
         " Resume latest coc list
         nnoremap <silent> <leader> kr  :<C-u>CocListResume<CR>
-        " Use `[c` and `]c` for navigate diagnostics
-        nmap <silent> ]c <Plug>(coc-diagnostic-prev)
-        nmap <silent> [c <Plug>(coc-diagnostic-next)
         " Remap for rename current word
         nmap <leader> kn <Plug>(coc-rename)
         " Remap for format selected region
@@ -36,7 +36,7 @@ if dein#tap('coc.nvim')
         xmap <leader> ka  <Plug>(coc-codeaction-selected)
         nmap <leader> ka  <Plug>(coc-codeaction-selected)
         " Fix autofix problem of current line
-        nmap <leader> kq  <Plug>(coc-fix-current)
+        nmap <leader> qf  <Plug>(coc-fix-current)
         " Remap keys for gotos
         nmap <silent> gd <Plug>(coc-definition)
         nmap <silent> gy <Plug>(coc-type-definition)
