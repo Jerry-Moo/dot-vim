@@ -121,7 +121,7 @@
         let g:EasyMotion_use_smartsign_us = 1
   # 更高效的行内移动, f/F/t/T, 才触发
 - repo: unblevable/quick-scope          
-  hook_source: |
+  hook_add: |
         let g:qs_highlight_on_keys = ['f', 'F', 't', 'T']
   # easyalign 快速赋值语句对齐
 - repo: junegunn/vim-easy-align      

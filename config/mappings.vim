@@ -21,7 +21,7 @@ nnoremap <leader>. gt
 
 " tabline operation
 " 新建tab Ctrl + t
-noremap <leader>tn :tabnew<CR>
+noremap <C-t> :tabnew<CR>
 noremap <leader>tc :tabclose<CR>
 noremap <leader>te :tabedit<CR>
 noremap <leader>tm :tabmove<CR>
@@ -76,11 +76,11 @@ fun! ToggleFold()
     endif
 endfun
 
-" noremap <C-m> :call NumberToggle()<cr>
-" function! NumberToggle()
-    " if(&relativenumber == 1)
-        " set norelativenumber number
-    " else
-        " set relativenumber
-    " endif
-" endfunc
+noremap <leader>n :call NumberToggle()<cr>
+function! NumberToggle()
+    if(&relativenumber == 1)
+        set norelativenumber number
+    else
+        set relativenumber
+    endif
+endfunc

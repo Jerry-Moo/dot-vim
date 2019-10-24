@@ -18,7 +18,6 @@ let g:which_key_map = {
     \  'b': 'toggle fold',
     \  'c': {
             \ 'name': 'nerd commenter',
-            \ 'space': 'NERDCommenterToggle',
             \ '$': 'NERDCommenterToEOL',
             \ 'a': 'NERDCommenterAltDelims',
             \ 'A': 'NERDCommenterAppend',
@@ -68,23 +67,25 @@ let g:which_key_map = {
             \ 'j': 'coc Next',
             \ 'k': 'coc Prev',
             \ 'm': 'coc search word to multiple cursors',
-            \ 'n': 'coc Rename/重命名光标所在位置符号',
+            \ 'n': 'coc Rename',
             \ 'o': 'coc OutLine',
-            \ 'r': 'coc Resume/重新打开上一次的列表',
+            \ 'q': 'coc Quickfix fixcurrent',
+            \ 'r': 'coc Resume',
             \ 's': 'coc Isymbols',
             \ 'w': 'coc Search'
     \     },
     \  'm': 'open mudotree',
+    \  'n': 'set number/relativenumber',
     \  'q': {
-            \ 'name': 'coc-quickfix',
-            \ 'f': 'coc fixcurrent',
+            \ 'name': 'quickrun',
+            \ 'r': 'QuickRun',
             \ },
     \  't': {
             \ 'name': 'tab-operate',
             \ 'c': 'tab close',
             \ 'e': 'edit tab',
             \ 'm': 'move tab',
-            \ 'n': 'new tab',
+            \ 'Ctrl+t': 'new tab',
             \ },
     \  'w': 'save file',
     \  'x': 'coc cursors operate',
@@ -117,7 +118,6 @@ let g:which_key_lsbgmap = {
 
 let g:which_key_localmap ={
       \ 'name' : 'Local LeaderKey'  ,
-      \ 'r'    : 'quick run',
       \ 'g' : {
             \ 'name' : '+golang-toolkit',
             \ 'i'    : 'go impl',
