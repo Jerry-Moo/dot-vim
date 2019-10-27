@@ -18,6 +18,8 @@ nnoremap L $
 " tab buffer 切换快捷键
 nnoremap <leader>, gT
 nnoremap <leader>. gt
+nnoremap ]b :bp<Cr>
+nnoremap [b :bn<Cr>
 
 " tabline operation
 " 新建tab Ctrl + t

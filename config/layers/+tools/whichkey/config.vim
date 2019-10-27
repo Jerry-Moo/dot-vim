@@ -69,7 +69,6 @@ let g:which_key_map = {
             \ 'm': 'coc search word to multiple cursors',
             \ 'n': 'coc Rename',
             \ 'o': 'coc OutLine',
-            \ 'q': 'coc Quickfix fixcurrent',
             \ 'r': 'coc Resume',
             \ 's': 'coc Isymbols',
             \ 'w': 'coc Search'
@@ -79,7 +78,7 @@ let g:which_key_map = {
     \  'q': {
             \ 'name': 'quickrun',
             \ 'r': 'quick run',
-            \ 'f': 'coc fixcurrent',
+            \ 'f': 'coc Quickfix fixcurrent',
             \ },
     \  't': {
             \ 'name': 'tab-operate',
