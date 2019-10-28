@@ -109,7 +109,7 @@
   if: executable('ctags')
   on_path: .*
   hook_source: source $VIM_PATH/config/layers/+tools/vim-gutentags/config.vim
-  # 更高效的移动 [leader+f,leader+b,leader+w]
+  # 更高效的移动 [leader+leader+f,leader+leader+b,lenader+leader+w]
 - repo: easymotion/vim-easymotion   
   on_map: { n: <Plug> }
   hook_source: |
