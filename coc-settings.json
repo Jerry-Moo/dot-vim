@@ -82,7 +82,8 @@
   "explorer.width": 30,
   "explorer.icon.enableNerdfont": true,
   "explorer.keyMappings": {
-    "l": "expandOrShrink"
+    "h": "gotoParent",
+    "l": "expandOrShrink",
   },
   "eslint.filetypes": [
     "javascript",
