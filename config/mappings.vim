@@ -68,7 +68,7 @@ nnoremap <expr> zz (winline() == (winheight(0)+1) / 2) ?
 " 代码折叠自定义快捷键 <leader>b
 let g:FoldMethod = 0
 nnoremap <leader>b :call ToggleFold()<CR>
-fun! ToggleFold()
+function! ToggleFold()
     if g:FoldMethod == 0
         exe "normal! zM"
         let g:FoldMethod = 1
@@ -76,7 +76,7 @@ fun! ToggleFold()
         exe "normal! zR"
         let g:FoldMethod = 0
     endif
-endfun
+endfunc
 
 noremap <leader>n :call NumberToggle()<cr>
 function! NumberToggle()

@@ -3,19 +3,12 @@
 #
 # StartUp Plugins
 - repo: Shougo/dein.vim
-- repo: wsdjeg/dein-ui.vim
   depends: dein.vim
-
   # 状态栏 需要 nerd font 字体支持
-# - repo: taigacute/spaceline.vim
-# - repo: bagrat/vim-buffet
-  # hook_add: source $VIM_PATH/config/layers/+ui/vim-buffet/config.vim
-- repo: vim-airline/vim-airline
-  hook_add: source $VIM_PATH/config/layers/+ui/vim-airline/config.vim
-- repo: vim-airline/vim-airline-themes
+- repo: taigacute/spaceline.vim
+- repo: bagrat/vim-buffet
+  hook_add: source $VIM_PATH/config/layers/+ui/vim-buffet/config.vim
 
-  # 光标下划线
-# - repo: itchyny/vim-cursorword
 
   # Code Completions
 - repo: neoclide/coc.nvim
@@ -26,9 +19,18 @@
   depends : coc.nvim
 
 # IDE features
-    # icon
+  # icon
 - repo: ryanoasis/vim-devicons
   hook_add: let g:webdevicons_enable_denite = 1
+  # Denite
+- repo: Shougo/denite.nvim
+  on_cmd: Denite
+  depends: vim-devicons
+  hook_source: |
+      source $VIM_PATH/config/layers/+completions/denite/config.vim
+      source $VIM_PATH/config/layers/+completions/denite/denite_menu.vim
+  # 光标下划线
+- repo: itchyny/vim-cursorword
 - repo: t9md/vim-choosewin
   on_map: { n: <Plug> }
   hook_source: source $VIM_PATH/config/layers/+tools/choosewin/config.vim
@@ -84,6 +86,7 @@
   hook_source: source  $VIM_PATH/config/layers/+ui/defx/defx-git.vim
 - repo: kristijanhusak/defx-icons
   on_source: defx.nvim
+  hook_source: source  $VIM_PATH/config/layers/+ui/defx/defx-icons.vim
 
 # Search
 - repo: junegunn/fzf

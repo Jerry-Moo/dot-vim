@@ -50,8 +50,6 @@ let g:which_key_map = {
             \ 'B': 'Gbrowse',
             \ 'c': 'Gcommit',
             \ 'd': 'Gdiff',
-            \ 'h': 'GitBranch',
-            \ 'l': 'GitLogAll',
             \ 'p': 'git push',
             \ 'S': 'Gstatus',
             \  },
@@ -128,6 +126,7 @@ let g:which_key_localmap ={
             \ 'r'    : 'go run',
             \ 'v'    : 'go vet',
             \ },
+      \ 'm'    : 'toolkit Menu',
       \ 'v'    : 'open vista show outline',
       \ }
 
