@@ -25,5 +25,5 @@ let g:go_highlight_variable_assignments = 0
 let g:go_doc_keywordprg_enabled = 0
 let g:go_def_mapping_enabled = 0
 
-autocmd BufWritePre *.go :call CocAction('runCommand', 'editor.action.organizeImport')
+" autocmd BufWritePre *.go :call CocAction('runCommand', 'editor.action.organizeImport')
 
