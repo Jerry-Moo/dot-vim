@@ -83,7 +83,13 @@
   "explorer.icon.enableNerdfont": true,
   "explorer.keyMappings": {
     "h": "gotoParent",
-    "l": "expandOrShrink",
+    "l": "expandOrShrink"
+  },
+  // golang
+  "go.goplsOptions": {
+    "usePlaceholders": true,
+    "completeUnimported": true,
+    "deepCompletion": true
   },
   "eslint.filetypes": [
     "javascript",
@@ -92,6 +98,8 @@
   ],
   "eslint.autoFix": true,
   "eslint.autoFixOnSave": true,
+  // python
+  "python.jediEnabled": false,
   "languageserver": {
     "ccls": {
       "command": "ccls",

@@ -7,9 +7,12 @@
   depends: dein.vim
 
   # 状态栏 需要 nerd font 字体支持
-- repo: taigacute/spaceline.vim
-- repo: bagrat/vim-buffet
-  hook_add: source $VIM_PATH/config/layers/+ui/vim-buffet/config.vim
+# - repo: taigacute/spaceline.vim
+# - repo: bagrat/vim-buffet
+  # hook_add: source $VIM_PATH/config/layers/+ui/vim-buffet/config.vim
+- repo: vim-airline/vim-airline
+  hook_add: source $VIM_PATH/config/layers/+ui/vim-airline/config.vim
+- repo: vim-airline/vim-airline-themes
 
   # 光标下划线
 # - repo: itchyny/vim-cursorword
