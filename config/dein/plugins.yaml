@@ -30,7 +30,7 @@
       source $VIM_PATH/config/layers/+completions/denite/config.vim
       source $VIM_PATH/config/layers/+completions/denite/denite_menu.vim
   # 光标下划线
-- repo: itchyny/vim-cursorword
+# - repo: itchyny/vim-cursorword
 - repo: t9md/vim-choosewin
   on_map: { n: <Plug> }
   hook_source: source $VIM_PATH/config/layers/+tools/choosewin/config.vim
