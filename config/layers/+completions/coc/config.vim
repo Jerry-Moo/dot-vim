@@ -4,7 +4,7 @@ let g:coc_snippet_prev = '<S-TAB>'
 let g:coc_status_error_sign = '•'
 let g:coc_status_warning_sign = '•'
 " coc-tabnine 人工智障视乎情况添加
-let g:coc_global_extensions =['coc-html','coc-css','coc-snippets','coc-neosnippet', 'coc-prettier','coc-eslint','coc-emmet','coc-tsserver','coc-pairs','coc-json','coc-python','coc-imselect','coc-highlight','coc-git','coc-emoji','coc-lists','coc-post','coc-stylelint','coc-yaml','coc-template','coc-marketplace','coc-gitignore','coc-yank','coc-explorer']
+let g:coc_global_extensions =['coc-html','coc-css','coc-snippets','coc-neosnippet', 'coc-prettier','coc-eslint','coc-emmet','coc-tsserver','coc-pairs','coc-json','coc-python','coc-imselect','coc-highlight','coc-git','coc-emoji','coc-lists','coc-post','coc-stylelint','coc-yaml','coc-template','coc-marketplace','coc-gitignore','coc-yank','coc-explorer', 'coc-vetur']
 
 augroup MyAutoCmd
   autocmd!
