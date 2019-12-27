@@ -1,0 +1,93 @@
+"==============================================================================
+" Maintainer: Jerry Wu @adswave
+" Version: 0.1
+" Last Modify: Dec 01 2019
+" ~/.vimrc
+" For macOS term, base on macOS Mojave
+" Need to do:
+"       git clone
+" Sections:
+"       -> call s:source_file('config/init.vim')
+"       -> call s:source_file('config/dein/plugins.yaml') 加载插件配置
+"
+"       -> etc#init() Initial Base 加载基础配置
+"       -> etc#util#source_file('config/layers/dot-nvim/config.vim') General Settings   基础设置
+"       -> etc#util#source_file('config/mappings.vim') HotKey Settings 自定义快捷键
+"       -> etc#util#source_file('config/filetype.vim')FileType Settings 针对文件类型的设置
+"       ->  Theme Settings 主题设置
+" Note: Don't put anything in your .vimrc you don't understand!l
+"==============================================================================
+
+if &compatible
+	set nocompatible        " 关闭兼容模式
+endif
+
+" Set main configuration directory as parent directory
+let $VIM_PATH = fnamemodify(resolve(expand('<sfile>:p')), ':h:h')
+
+
+function! s:source_file(path, ...)
+	" Source user configuration files with set/global sensitivity
+	let use_global = get(a:000, 0, ! has('vim_starting'))
+	let abspath = resolve($VIM_PATH . '/' . a:path)
+	if ! use_global
+		execute 'source' fnameescape(abspath)
+		return
+	endif
+
+	let tempfile = tempname()
+	let content = map(readfile(abspath),
+		\ "substitute(v:val, '^\\W*\\zsset\\ze\\W', 'setglobal', '')")
+	try
+		call writefile(content, tempfile)
+		execute printf('source %s', fnameescape(tempfile))
+	finally
+		if filereadable(tempfile)
+			call delete(tempfile)
+		endif
+	endtry
+endfunction
+
+" Initialize startup settings
+if has('vim_starting')
+    " Golbal Mappings
+    " User spacebar as leader 
+    " Required before loading plugins!
+
+    let g:mapleader = "\<Space>"
+    let g:maplocalleader=";"
+
+    " Release keymappings prefixes, evict entirely for use of plug-ins.
+		nnoremap <Space>  <Nop>
+		xnoremap <Space>  <Nop>
+    nnoremap ,        <Nop>
+    xnoremap ,        <Nop>
+    nnoremap ;        <Nop>
+    xnoremap ;        <Nop>
+
+    " Vim only, Linux terminal settings
+    if ! has('nvim') && ! has('gui_running') && ! has('win32') && ! has('win64')
+        call s:source_file('config/terminal.vim')
+    endif
+endif
+
+" Load user scripts with confidential information
+" or pre-settings like g:elite_mode
+if filereadable($VIM_PATH . '/.vault.vim')
+	call s:source_file('.vault.vim')
+endif
+
+" Initialize plugin-manager and load main config files
+call s:source_file('config/init.vim')
+call s:source_file('config/plugins/plugins.yaml')
+
+" Initialize all my configurations
+call s:source_file('config/general.vim')
+call s:source_file('config/filetype.vim')
+call s:source_file('config/mappings.vim')
+
+colorscheme hybrid_reverse  " change to your favorite theme
+
+set secure
+
+" vim: set ts=2 sw=2 tw=80 noet :
