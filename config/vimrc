@@ -1,0 +1,118 @@
+"==============================================================================
+" Maintainer: Jerry Wu @adswave
+" Version: 0.1
+" Last Modify: Otc 11 2019
+" ~/.vimrc
+" For macOS term, base on macOS Mojave
+" Need to do:
+"       git clone
+"       :PluginInstal
+" Sections:
+"       -> etc#init() Initial Base 加载基础配置
+"       -> etc#util#source_file('config/layers/dot-nvim/config.vim') General Settings   基础设置
+"       -> etc#util#source_file('config/mappings.vim') HotKey Settings 自定义快捷键
+"       -> etc#util#source_file('config/filetype.vim')FileType Settings 针对文件类型的设置
+"       ->  Theme Settings 主题设置
+" Note: Don't put anything in your .vimrc you don't understand!l
+"==============================================================================
+if &compatible
+	set nocompatible        " 关闭兼容模式
+endif
+
+" Set main configuration directory as parent directory
+let $VIM_PATH = fnamemodify(resolve(expand('<sfile>:p')), ':h:h')
+
+" Regular Vim doesn't add custom configuration directories, if you use one
+if &runtimepath !~# $VIM_PATH
+    set runtimepath^=$VIM_PATH
+endif
+
+let $DATA_PATH = g:etc#cache_path
+
+augroup MyAutoCmd
+	autocmd!
+	autocmd CursorHold *? syntax sync minlines=300
+augroup END
+
+" Initialize base requirements
+if has('vim_starting')
+    " Golbal Mappings
+    " User spacebar as leader
+    " Required before loading plugins!
+    let g:mapleader = "\<Space>"
+    let g:maplocalleader=";"
+
+    " Release keymappings prefixes, evict entirely for use of plug-ins.
+		nnoremap <Space>  <Nop>
+		xnoremap <Space>  <Nop>
+    nnoremap ,        <Nop>
+    xnoremap ,        <Nop>
+    nnoremap ;        <Nop>
+    xnoremap ;        <Nop>
+
+    " Ensure data directories
+    call etc#util#ensure_directory([
+                \  g:etc#cache_path . '/undo',
+                \  g:etc#cache_path . '/backup',
+                \  g:etc#cache_path . '/session',
+                \  g:etc#cache_path . '/view',
+                \  g:etc#cache_path . '/tags',
+								\  g:etc#cache_path . '/swap',
+								\  $VIM_PATH . '/spell',
+                \])
+
+		" Search and use environments specifically made for Neovim.
+		if has('nvim') && isdirectory($DATA_PATH . '/venv/neovim2')
+			let g:python_host_prog = $DATA_PATH . '/venv/neovim2/bin/python'
+		endif
+
+		if has('nvim') && isdirectory($DATA_PATH . '/venv/neovim3')
+			let g:python3_host_prog = $DATA_PATH . '/venv/neovim3/bin/python'
+		endif
+
+		if ! has('nvim') && has('pythonx')
+			if has('python3')
+				set pyxversion=3
+			elseif has('python')
+				set pyxversion=2
+			endif
+		endif
+
+endif
+
+" Initialize plugin-manager and load main config files
+call etc#init()
+call etc#util#source_file('config/layers/dot-nvim/config.vim')
+
+" Initialize all my configurations
+call etc#util#source_file('config/general.vim')
+call etc#util#source_file('config/filetype.vim')
+call etc#util#source_file('config/mappings.vim')
+
+" Initialize user favorite colorscheme
+call theme#init()
+call etc#util#source_file('config/color.vim')
+
+
+" Disable vim distribution plugins
+let g:loaded_getscript = 1
+let g:loaded_getscriptPlugin = 1
+let g:loaded_gzip = 1
+let g:loaded_logiPat = 1
+let g:loaded_matchit = 1
+let g:loaded_matchparen = 1
+let g:netrw_nogx = 1 " disable netrw's gx mapping.
+let g:loaded_rrhelper = 1  " ?
+let g:loaded_shada_plugin = 1  " ?
+let g:loaded_tar = 1
+let g:loaded_tarPlugin = 1
+let g:loaded_tutor_mode_plugin = 1
+let g:loaded_2html_plugin = 1
+let g:loaded_vimball = 1
+let g:loaded_vimballPlugin = 1
+let g:loaded_zip = 1
+let g:loaded_zipPlugin = 1
+
+set secure
+
+" vim: set ts=2 sw=2 tw=80 noet :
