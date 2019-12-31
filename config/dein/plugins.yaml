@@ -93,7 +93,6 @@
 - { repo: heavenshell/vim-jsdoc, on_ft: [ javascript, javascriptreact ] }
 - { repo: jparise/vim-graphql, on_ft: [ javascript, javascriptreact ] }
 - { repo: moll/vim-node, on_ft: [ javascript, javascriptreact ] }
-- { repo: posva/vim-vue, on_ft: vue }
 - repo: posva/vim-vue
   on_ft: vue
   hook_source: source $VIM_PATH/config/layers/+lang/vue/config.vim
@@ -169,7 +168,6 @@
   hook_source: source  $VIM_PATH/config/layers/+ui/defx/defx-icons.vim
 
 - repo: mhinz/vim-startify
-  on_cmd: Startify
   depends: vim-devicons
   hook_add: source  $VIM_PATH/config/layers/+ui/startify/config.vim
   hook_post_source: |
@@ -289,7 +287,7 @@
 - repo: neoclide/coc.nvim
   merge: 0
   rev: release
-  hook_add: source  $VIM_PATH/config/layers/+completion/coc/config.vim
+  hook_add: source  $VIM_PATH/config/layers/+completions/coc/config.vim
 - repo: honza/vim-snippets
   depends : coc.nvim
 

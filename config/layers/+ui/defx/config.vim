@@ -14,18 +14,18 @@ call defx#custom#option('_', {
 	\   . ',__pycache__,.sass-cache,*.egg-info,.DS_Store,*.pyc'
 	\ })
 
-"call defx#custom#column('git', {
-	"\   'indicators': {
-	"\     'Modified'  : '•',
-	"\     'Staged'    : '✚',
-	"\     'Untracked' : 'ᵁ',
-	"\     'Renamed'   : '≫',
-	"\     'Unmerged'  : '≠',
-	"\     'Ignored'   : 'ⁱ',
-	"\     'Deleted'   : '✖',
-	"\     'Unknown'   : '⁇'
-	"\   }
-	"\ })
+call defx#custom#column('git', {
+	\   'indicators': {
+	\     'Modified'  : '•',
+	\     'Staged'    : '✚',
+	\     'Untracked' : 'ᵁ',
+	\     'Renamed'   : '≫',
+	\     'Unmerged'  : '≠',
+	\     'Ignored'   : 'ⁱ',
+	\     'Deleted'   : '✖',
+	\     'Unknown'   : '⁇'
+	\   }
+	\ })
 
 call defx#custom#column('mark', { 'readonly_icon': '', 'selected_icon': '' })
 
