@@ -38,6 +38,7 @@ if dein#tap('coc.nvim')
         nnoremap <silent> <leader>cd  :<C-u>CocList diagnostics<cr>
         " Manage extensions 显示插件列表
         nnoremap <silent> <leader>ce  :<C-u>CocList extensions<cr>
+				nnoremap <silent> <leader>cg  :<C-u>CocList --normal gstatus<CR>
         " Find symbol of current document
         nnoremap <silent> <leader>co  :<C-u>CocList outline<cr>
         " Search workspace symbols
@@ -74,7 +75,6 @@ if dein#tap('coc.nvim')
         nmap gs <Plug>(coc-git-chunkinfo)
         " show commit contains current position
         nmap gm <Plug>(coc-git-commit)
-        nnoremap <silent> <leader>cg  :<C-u>CocList --normal gstatus<CR>
         " float window scroll
         nnoremap <expr><C-f>coc#util#has_float() ? coc#util#float_scroll(1) : "\<C-f>"
         nnoremap <expr><C-b>coc#util#has_float() ? coc#util#float_scroll(0) : "\<C-b>"
@@ -83,7 +83,7 @@ if dein#tap('coc.nvim')
         " nmap <expr> <silent> <C-m> <SID>select_current_word()
         " xmap <silent> <C-d> <Plug>(coc-cursors-range)
         " use normal command like `<leader>xi(`
-        " nmap <leader> x  <Plug>(coc-cursors-operator)
+        nmap <leader> x  <Plug>(coc-cursors-operator)
 
         function! s:select_current_word()
             if !get(g:, 'coc_cursors_activated', 0)
@@ -162,12 +162,12 @@ if dein#tap('python_match.vim')
 	nmap <buffer> }} ]%
 endif
 
-if dein#tap('undotree')
-    nnoremap <silent><leader>m :UndotreeToggle<CR>
+if dein#tap('vim-mundo')
+    nnoremap <silent><leader>m :MundoToggle<CR>
 endif
 
 if dein#tap('vimagit')
-    nnoremap <silent><leader>mg :Magit<CR>
+    nnoremap <silent>mg :Magit<CR>
 endif
 
 if dein#tap('vim-asterisk')

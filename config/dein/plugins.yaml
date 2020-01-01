@@ -107,7 +107,9 @@
 # }}}
 
 # Commands{{{
-- { repo: mbbill/undotree, on_cmd: UndotreeToggle }
+- repo: simnalamburt/vim-mundo
+  on_cmd: MundoToggle
+  on_map: {n: <Plug> }
 - { repo: brooth/far.vim, on_cmd: [ Far, Farp, F ] }
 
 - repo: t9md/vim-choosewin
