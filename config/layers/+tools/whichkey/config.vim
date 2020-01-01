@@ -114,7 +114,10 @@ let g:which_key_localmap ={
             \ 'v'    : 'go vet',
             \ },
       \ 'm'    : 'toolkit Menu',
-      \ 'r'    : 'quick run',
+      \ 'q'    : {
+            \ 'name': 'QuickRun',
+            \ 'r': 'quick run'
+            \ },
       \ 'v'    : 'open vista show outline',
       \ }
 

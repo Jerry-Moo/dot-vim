@@ -48,12 +48,12 @@
 # ==========================================
 
 # Deinte{{{
-# - repo: Shougo/denite.nvim
-#   on_cmd: Denite
-#   depends: vim-devicons
-#   hook_source: |
-#         source  $VIM_PATH/layers/+completion/denite/config.vim
-#         source  $VIM_PATH/layers/+completion/denite/+denite_menu.vim
+- repo: Shougo/denite.nvim
+  on_cmd: Denite
+  depends: vim-devicons
+  hook_source: |
+        source  $VIM_PATH/config/layers/+completions/denite/config.vim
+        source  $VIM_PATH/config/layers/+completions/denite/denite_menu.vim
 # }}}
 
 # Interface{{{
