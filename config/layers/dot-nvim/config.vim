@@ -30,33 +30,33 @@ if dein#tap('coc.nvim')
         " Remap for do codeAction of current line
         nmap <leader>ac  <Plug>(coc-codeaction)
         " Remap for do codeAction of selected region, ex: `<leader>aap` for current paragraph 获取并执行 language server 给出的当前选择区间内的可用操作
-        xmap <leader>ka  <Plug>(coc-codeaction-selected)
-        nmap <leader>ka  <Plug>(coc-codeaction-selected)
+        xmap <leader>ca  <Plug>(coc-codeaction-selected)
+        nmap <leader>ca  <Plug>(coc-codeaction-selected)
         " Show commands 获取当前缓冲区可用命令列表
-        nnoremap <silent> <leader>kc  :<C-u>CocList commands<cr>
+        nnoremap <silent> <leader>cc  :<C-u>CocList commands<cr>
         " Show all diagnostics 显示错误信息
-        nnoremap <silent> <leader>kd  :<C-u>CocList diagnostics<cr>
+        nnoremap <silent> <leader>cd  :<C-u>CocList diagnostics<cr>
         " Manage extensions 显示插件列表
-        nnoremap <silent> <leader>ke  :<C-u>CocList extensions<cr>
-        " Remap for format selected region 格式化选中区间，可在正常和可视模式下工作
-        vmap <leader>kf  <Plug>(coc-format-selected)
-        nmap <leader>kf  <Plug>(coc-format-selected)
-        " Do default action for next item. 对之前列表的下一个选项执行默认操作
-        nnoremap <silent> <leader>kj  :<C-u>CocNext<CR>
-        " Do default action for previous item. 对之前列表的上一个选项执行默认操作
-        nnoremap <silent> <leader>kk  :<C-u>CocPrev<CR>
-        " 搜索单词
-        nnoremap <silent> <leader>km ::CocSearch -w
-        " Remap for rename current word 重命名光标所在位置符号
-        nmap <leader>kn <Plug>(coc-rename)
+        nnoremap <silent> <leader>ce  :<C-u>CocList extensions<cr>
         " Find symbol of current document
-        nnoremap <silent> <leader>ko  :<C-u>CocList outline<cr>
-        " Resume latest coc list 重新打开上一次的列表，输入字符和鼠标位置等信息将自动复原
-        nnoremap <silent> <leader>kr  :<C-u>CocListResume<CR>
+        nnoremap <silent> <leader>co  :<C-u>CocList outline<cr>
         " Search workspace symbols
-        nnoremap <silent> <leader>ks  :<C-u>CocList -I symbols<cr>
+        nnoremap <silent> <leader>cs  :<C-u>CocList -I symbols<cr>
+        " Do default action for next item. 对之前列表的下一个选项执行默认操作
+        nnoremap <silent> <leader>cj  :<C-u>CocNext<CR>
+        " Do default action for previous item. 对之前列表的上一个选项执行默认操作
+        nnoremap <silent> <leader>ck  :<C-u>CocPrev<CR>
+        " Resume latest coc list 重新打开上一次的列表，输入字符和鼠标位置等信息将自动复原
+        nnoremap <silent> <leader>cr  :<C-u>CocListResume<CR>
+        " Remap for format selected region 格式化选中区间，可在正常和可视模式下工作
+        vmap <leader>cf  <Plug>(coc-format-selected)
+        nmap <leader>cf  <Plug>(coc-format-selected)
+        " 搜索单词
+        nnoremap <silent> <leader>cm ::CocSearch -w
+        " Remap for rename current word 重命名光标所在位置符号
+        nmap <leader>cn <Plug>(coc-rename)
         " Coc Search
-        nnoremap <silent> <leader>kw ::CocSearch
+        nnoremap <silent> <leader>cw ::CocSearch
         " Fix autofix problem of current line
         nmap <leader>qf  <Plug>(coc-fix-current)
         " Remap keys for gotos
@@ -74,7 +74,7 @@ if dein#tap('coc.nvim')
         nmap gs <Plug>(coc-git-chunkinfo)
         " show commit contains current position
         nmap gm <Plug>(coc-git-commit)
-        nnoremap <silent> <leader>kg  :<C-u>CocList --normal gstatus<CR>
+        nnoremap <silent> <leader>cg  :<C-u>CocList --normal gstatus<CR>
         " float window scroll
         nnoremap <expr><C-f>coc#util#has_float() ? coc#util#float_scroll(1) : "\<C-f>"
         nnoremap <expr><C-b>coc#util#has_float() ? coc#util#float_scroll(0) : "\<C-b>"
@@ -139,6 +139,12 @@ if dein#tap('denite.nvim')
     endfunction
 endif
 
+if dein#tap('emmet-vim')
+        autocmd MyAutoCmd FileType html,css,javascript,javascriptreact
+					\ EmmetInstall
+					\ | imap <buffer> <C-Return> <Plug>(emmet-expand-abbr)
+endif
+
 if dein#tap('fzf.vim')
     nnoremap <silent> <leader>fc :Colors<CR>
     nnoremap <silent> <leader>fb :Buffers<CR>
@@ -151,8 +157,29 @@ if dein#tap('gina.vim')
     nnoremap <silent><leader>gp :Gina push<CR>
 endif
 
+if dein#tap('python_match.vim')
+	nmap <buffer> {{ [%
+	nmap <buffer> }} ]%
+endif
+
+if dein#tap('undotree')
+    nnoremap <silent><leader>m :UndotreeToggle<CR>
+endif
+
 if dein#tap('vimagit')
-    nnoremap <silent> mg :Magit<CR>
+    nnoremap <silent><leader>mg :Magit<CR>
+endif
+
+if dein#tap('vim-asterisk')
+	map *   <Plug>(asterisk-g*)
+	map g*  <Plug>(asterisk-*)
+	map #   <Plug>(asterisk-g#)
+	map g#  <Plug>(asterisk-#)
+
+	map z*  <Plug>(asterisk-z*)
+	map gz* <Plug>(asterisk-gz*)
+	map z#  <Plug>(asterisk-z#)
+	map gz# <Plug>(asterisk-gz#)
 endif
 
 if dein#tap('vim-choosewin')
@@ -186,17 +213,20 @@ if dein#tap('vim-easymotion')
 endif
 
 if dein#tap('vim-go')
-    nnoremap <silent> <localleader>gi :GoImpl<CR>
-    nnoremap <silent> <localleader>gd :GoDescribe<CR>
-    nnoremap <silent> <localleader>gc :GoCallees<CR>
-    nnoremap <silent> <localleader>gC :GOCallers<CR>
-    nnoremap <silent> <localleader>gs :GoCallstack<CR>
-    nnoremap <silent> <localleader>gr :GoRun<CR>
-    nnoremap <silent> <localleader>gv :GoVet<CR>
+    autocmd MyAutoCmd FileType go
+        \ nnoremap <silent> <localleader>gi :GoImpl<CR>
+        \ | nnoremap <silent> <localleader>gd :GoDescribe<CR>
+        \ | nnoremap <silent> <localleader>gc :GoCallees<CR>
+        \ | nnoremap <silent> <localleader>gC :GOCallers<CR>
+        \ | nnoremap <silent> <localleader>gs :GoCallstack<CR>
+        \ | nnoremap <silent> <localleader>gr :GoRun<CR>
+        \ | nnoremap <silent> <localleader>gv :GoVet<CR>
 endif
 
-if dein#tap('vim-mundo')
-    nnoremap <silent> <leader>m :MundoToggle<CR>
+if dein#tap('vim-quickhl')
+	nmap mt <Plug>(quickhl-manual-this)
+	xmap mt <Plug>(quickhl-manual-this)
+	nmap mC <Plug>(quickhl-manual-reset)
 endif
 
 if dein#tap('vim-quickrun')
@@ -214,3 +244,5 @@ if dein#tap('vista.vim')
     nnoremap <silent><localleader>v :Vista!!<CR>
     nnoremap <silent><leader>fv     :Vista finder coc<CR>
 endif
+
+" vim: set ts=2 sw=2 tw=80 noet :

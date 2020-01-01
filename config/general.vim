@@ -78,7 +78,7 @@ set history=1000
         set ttimeoutlen=10  " Time out on key codes
 
 " vim编辑器用户界面外观
-				set colorcolumn=120      " Highlight the 80th character limit
+        set colorcolumn=120      " Highlight the 80th character limit
         set hidden              " 使得不可见的缓冲区保持载入
         set shortmess=aFc       " 显示开屏系统版本信息
         set confirm             " when deal with unsaved files ask what to do
@@ -86,11 +86,9 @@ set history=1000
         set laststatus=2        " 总是显示底部状态行
         set statusline=-        " hide file name in statusline 隐藏侧边栏 一般 git 代码检查
         set fillchars+=vert:\|  " add a bar for vertical splits 添加垂直分隔条
-				if has('nvim')
-					if get(g:,'gruvbox_transp_bg',1) 
-							set fcs=eob:\           " hide ~
-					endif
-				endif
+        if has('nvim') && get(g:,'gruvbox_transp_bg',1)
+            set fcs=eob:\           " hide ~
+        endif
         set signcolumn=yes      " 总是显示左边git error 状态栏
         set list                " 自定义tab显示样式
         " set showbreak=↪       " 换行前聚 

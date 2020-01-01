@@ -29,30 +29,26 @@ call defx#custom#column('git', {
 
 call defx#custom#column('mark', { 'readonly_icon': '', 'selected_icon': '' })
 
-" defx-icons plugin
-let g:defx_icons_column_length = 2
-let g:defx_icons_mark_icon = ''
-
 " Internal use
 let s:original_width = get(get(defx#custom#_get().option, '_'), 'winwidth')
 
+" Events
+" ---
 augroup user_plugin_defx
 	autocmd!
 
+	" autocmd DirChanged * call s:defx_refresh_cwd(v:event)
+
 	" Delete defx if it's the only buffer left in the window
-	autocmd WinEnter * if &filetype == 'defx' && winnr('$') == 1 | bdel | endif
+	autocmd WinEnter * if &filetype == 'defx' && winnr('$') == 1 | bd | endif
 
 	" Move focus to the next window if current buffer is defx
 	autocmd TabLeave * if &filetype == 'defx' | wincmd w | endif
 
-	" Clean Defx window once a tab-page is closed
-	" autocmd TabClosed * call <SID>defx_close_tab(expand('<afile>'))
-
-	" Automatically refresh opened Defx windows when changing working-directory
-	" autocmd DirChanged * call s:defx_refresh_cwd(v:event)
+	autocmd TabClosed * call s:defx_close_tab(expand('<afile>'))
 
 	" Define defx window mappings
-	autocmd FileType defx call <SID>defx_mappings()
+	autocmd FileType defx call s:defx_mappings()
 
 augroup END
 
