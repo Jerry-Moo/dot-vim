@@ -14,18 +14,18 @@ call defx#custom#option('_', {
 	\   . ',__pycache__,.sass-cache,*.egg-info,.DS_Store,*.pyc'
 	\ })
 
-call defx#custom#column('git', {
-	\   'indicators': {
-	\     'Modified'  : '•',
-	\     'Staged'    : '✚',
-	\     'Untracked' : 'ᵁ',
-	\     'Renamed'   : '≫',
-	\     'Unmerged'  : '≠',
-	\     'Ignored'   : 'ⁱ',
-	\     'Deleted'   : '✖',
-	\     'Unknown'   : '⁇'
-	\   }
-	\ })
+" call defx#custom#column('git', {
+"	\   'indicators': {
+"	\     'Modified'  : '•',
+"	\     'Staged'    : '✚',
+"	\     'Untracked' : 'ᵁ',
+"	\     'Renamed'   : '≫',
+"	\     'Unmerged'  : '≠',
+"	\     'Ignored'   : 'ⁱ',
+"	\     'Deleted'   : '✖',
+"	\     'Unknown'   : '⁇'
+"	\   }
+"	\ })
 
 call defx#custom#column('mark', { 'readonly_icon': '', 'selected_icon': '' })
 
@@ -153,5 +153,73 @@ function! s:defx_mappings() abort
 	nnoremap <silent><buffer><expr> S  defx#do_action('toggle_sort', 'Time')
 	nnoremap <silent><buffer><expr> C
 		\ defx#do_action('toggle_columns', 'indent:mark:filename:type:size:time')
+	" Tools
+	nnoremap <silent><buffer><expr> gx  defx#async_action('execute_system')
+	nnoremap <silent><buffer><expr> gd  defx#async_action('multi', ['drop', ['call', '<SID>git_diff']])
+	nnoremap <silent><buffer><expr> gl  defx#async_action('call', '<SID>explorer')
+	nnoremap <silent><buffer><expr> gr  defx#do_action('call', '<SID>grep')
+	nnoremap <silent><buffer><expr> gf  defx#do_action('call', '<SID>find_files')
+	nnoremap <silent><buffer><expr> w   defx#async_action('call', '<SID>toggle_width')
+endfunction
 
+" TOOLS
+" ---
+
+function! s:git_diff(context) abort
+	execute 'GdiffThis'
+endfunction
+
+function! s:find_files(context) abort
+	" Find files in parent directory with Denite
+	let l:target = a:context['targets'][0]
+	let l:parent = fnamemodify(l:target, ':h')
+	silent execute 'wincmd w'
+	silent execute 'Denite file/rec:'.l:parent
+endfunction
+
+function! s:grep(context) abort
+	" Grep in parent directory with Denite
+	let l:target = a:context['targets'][0]
+	let l:parent = fnamemodify(l:target, ':h')
+	silent execute 'wincmd w'
+	silent execute 'Denite grep:'.l:parent
+endfunction
+
+function! s:toggle_width(context) abort
+	" Toggle between defx window width and longest line
+	let l:max = 0
+	let l:original = a:context['winwidth']
+	for l:line in range(1, line('$'))
+		let l:len = len(getline(l:line))
+		if l:len > l:max
+			let l:max = l:len
+		endif
+	endfor
+	execute 'vertical resize ' . (l:max == winwidth('.') ? l:original : l:max)
+endfunction
+
+function! s:explorer(context) abort
+	" Open file-explorer split with tmux
+	let l:explorer = s:find_file_explorer()
+	if empty('$TMUX') || empty(l:explorer)
+		return
+	endif
+	let l:target = a:context['targets'][0]
+	let l:parent = fnamemodify(l:target, ':h')
+	let l:cmd = 'split-window -p 30 -c ' . l:parent . ' ' . l:explorer
+	silent execute '!tmux ' . l:cmd
+endfunction
+
+function! s:find_file_explorer() abort
+	" Detect terminal file-explorer
+	let s:file_explorer = get(g:, 'terminal_file_explorer', '')
+	if empty(s:file_explorer)
+		for l:explorer in ['lf', 'hunter', 'ranger', 'vifm']
+			if executable(l:explorer)
+				let s:file_explorer = l:explorer
+				break
+			endif
+		endfor
+	endif
+	return s:file_explorer
 endfunction
