@@ -230,7 +230,7 @@ if dein#tap('vim-quickhl')
 endif
 
 if dein#tap('vim-quickrun')
-    nnoremap <silent> <leader>qr :QuickRun<CR>
+    nnoremap <silent> <localleader>qr :QuickRun<CR>
 endif
 
 if dein#tap('vim-which-key')

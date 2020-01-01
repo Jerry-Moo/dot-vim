@@ -58,8 +58,7 @@ let g:which_key_map = {
     \  'm': 'open mudotree',
     \  'n': 'set number/relativenumber',
     \  'q': {
-            \ 'name': 'quickrun',
-            \ 'r': 'quick run',
+            \ 'name': 'coc-quickfix',
             \ 'f': 'coc Quickfix fixcurrent',
             \ },
     \  't': {
@@ -115,6 +114,7 @@ let g:which_key_localmap ={
             \ 'v'    : 'go vet',
             \ },
       \ 'm'    : 'toolkit Menu',
+      \ 'r'    : 'quick run',
       \ 'v'    : 'open vista show outline',
       \ }
 
