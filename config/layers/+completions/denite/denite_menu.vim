@@ -13,7 +13,6 @@ let s:menus.project = { 'description': '🛠  Project & Structure' }
 let s:menus.project.command_candidates = [
   \   ['🐳 File Explorer        🔸<Leader>e',        'Defx -resume -toggle -buffer-name=tab`tabpagenr()`<CR>'],
   \   ['🐳 Outline              🔸<LocalLeader>t',   'TagbarToggle'],
-  \   ['🐳 Git Status           🔸<LocalLeader>gs',  'Denite gitstatus'],
   \   ['🐳 Mundo Tree           🔸<Leader>m',  'MundoToggle'],
   \ ]
 
@@ -43,13 +42,12 @@ let s:menus.config.file_candidates = [
 let s:menus.dot_nvim = {'description': '💎 dot-nvim Configuration files'}
 let s:menus.dot_nvim.file_candidates = [
   \   ['🐠 MainVimrc          settings: vimrc               🔹', $VIM_PATH.'/config/vimrc'],
-  \   ['🐠 Initial            settings: init.vim            🔹', $VIM_PATH.'/config/init.vim'],
   \   ['🐠 General            settings: general.vim         🔹', $VIM_PATH.'/config/general.vim'],
   \   ['🐠 DeinConfig         settings: deinrc.vim          🔹', $VIM_PATH.'/config/deinrc.vim'],
   \   ['🐠 FileTypes          settings: filetype.vim        🔹', $VIM_PATH.'/config/filetype.vim'],
   \   ['🐠 Installed       LoadPlugins: plugins.yaml        🔹', $VIM_PATH.'/config/dein/plugins.yaml'],
   \   ['🐠 Global   Key    Vimmappings: mappings.vim        🔹', $VIM_PATH.'/config/mappings.vim'],
-  \   ['🐠 Global   Key Pluginmappings: Pluginmappings      🔹', $VIM_PATH.'/config/plugins/allkey.vim'],
+  \   ['🐠 Global   Key Pluginmappings: Pluginmappings      🔹', $VIM_PATH.'/config/layers/dot-nvim/config.vim'],
   \ ]
 
 call denite#custom#var('menu', 'menus', s:menus)
