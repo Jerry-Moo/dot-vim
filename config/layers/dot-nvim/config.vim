@@ -213,14 +213,13 @@ if dein#tap('vim-easymotion')
 endif
 
 if dein#tap('vim-go')
-    autocmd MyAutoCmd FileType go
-        \ nnoremap <silent> <localleader>gi :GoImpl<CR>
-        \ | nnoremap <silent> <localleader>gd :GoDescribe<CR>
-        \ | nnoremap <silent> <localleader>gc :GoCallees<CR>
-        \ | nnoremap <silent> <localleader>gC :GOCallers<CR>
-        \ | nnoremap <silent> <localleader>gs :GoCallstack<CR>
-        \ | nnoremap <silent> <localleader>gr :GoRun<CR>
-        \ | nnoremap <silent> <localleader>gv :GoVet<CR>
+    nnoremap <silent> <localleader>gi :GoImpl<CR>
+    nnoremap <silent> <localleader>gd :GoDescribe<CR>
+    nnoremap <silent> <localleader>gc :GoCallees<CR>
+		nnoremap <silent> <localleader>gC :GOCallers<CR>
+    nnoremap <silent> <localleader>gs :GoCallstack<CR>
+    nnoremap <silent> <localleader>gr :GoRun<CR>
+    nnoremap <silent> <localleader>gv :GoVet<CR>
 endif
 
 if dein#tap('vim-quickhl')
