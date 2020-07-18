@@ -20,7 +20,7 @@ let $VIM_PATH =
 
 " Set data/cache directory as $XDG_CACHE_HOME/vim
 let $DATA_PATH = 
-	\ expand(($XDG_CACHE_HOME ? $XDG_CACHE_HOME : '~/.cache').'/vim')
+	\ expand(($XDG_CACHE_HOME ? $XDG_CACHE_HOME : '~/.cache_vim').'/vim')
 
 " Collection of user plugin list config file-paths
 let s:config_paths = get(g:, 'etc_config_paths', [
@@ -32,7 +32,6 @@ let s:config_paths = get(g:, 'etc_config_paths', [
   \ ])
 
 let s:user_plugins=expand($HOME.'/.dotnvim.d/plugins.yaml')
-
 
 function! s:load_plugins(plugin_files)
 	" check the user plugins
