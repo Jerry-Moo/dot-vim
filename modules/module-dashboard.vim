@@ -17,7 +17,7 @@ let g:dashboard_custom_header = [
       \ '    ⠀⠀⠀⠈⠻⢧⣀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠐⣻⠿⠋⠀⠀⠀⠀⠀⠀  ',
       \ '    ⠀⠀⠀⠀⠀⠀⠉⠓⠶⣤⣄⣀⡀⠀⠀⠀⠀⠀⢀⣀⣠⡴⠖⠋⠁⠀⠀⠀⠀⠀⠀⠀⠀  ',
       \ '                                       ',
-      \ ' [  dotnvim version '.g:dotnvim_version.' @jerrymoo  ]',
+      \ ' [  dotvim version '.g:dotvim_version.' @jerrymoo  ]',
       \ '',
       \ ]
 

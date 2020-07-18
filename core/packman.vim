@@ -9,7 +9,7 @@ augroup END
 let s:package_manager = 'dein'
 
 " Set main configuration directory as parent directory
-let $VIM_PATH = 
+let $VIM_PATH =
 	\ get(g:, 'etc_vim_path',
 	\   exists('*stdpath') ? stdpath('config') :
 	\   ! empty($MYVIMRC) ? fnamemodify(expand($MYVIMRC), ':h') :
@@ -19,8 +19,8 @@ let $VIM_PATH =
 	\ )
 
 " Set data/cache directory as $XDG_CACHE_HOME/vim
-let $DATA_PATH = 
-	\ expand(($XDG_CACHE_HOME ? $XDG_CACHE_HOME : '~/.cache_vim').'/vim')
+let $DATA_PATH =
+	\ expand(($XDG_CACHE_HOME ? $XDG_CACHE_HOME : '~/.cache').'/vim')
 
 " Collection of user plugin list config file-paths
 let s:config_paths = get(g:, 'etc_config_paths', [
@@ -31,7 +31,7 @@ let s:config_paths = get(g:, 'etc_config_paths', [
 	\ $VIM_PATH . '/vimrc.json',
   \ ])
 
-let s:user_plugins=expand($HOME.'/.dotnvim.d/plugins.yaml')
+let s:user_plugins=expand($HOME.'/.dotvim.d/plugins.yaml')
 
 function! s:load_plugins(plugin_files)
 	" check the user plugins

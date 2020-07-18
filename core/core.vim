@@ -1,9 +1,9 @@
-" version info of dotnvim
-let g:dotnvim_version = "0.0.1"
+" version info of dotvim
+let g:dotvim_version = "0.0.1"
 " disable all keymaps of plugins
-let g:dotnvim_disable_mappings = 0
+let g:dotvim_disable_mappings = 0
 " disable some plugins keymap
-let g:dotnvim_disable_pmaping = []
+let g:dotvim_disable_pmaping = []
 
 if &compatible
 	set nocompatible        " 关闭兼容模式

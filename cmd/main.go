@@ -17,7 +17,7 @@ var (
 )
 
 func main() {
-	userplugins := homepath + "/.dotnvim.d/plugins.yaml"
+	userplugins := homepath + "/.dotvim.d/plugins.yaml"
 	colorscheme(userplugins)
 	userlangs := clilangqs()
 	var wg sync.WaitGroup
