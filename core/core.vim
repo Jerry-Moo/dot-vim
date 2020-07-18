@@ -1,5 +1,5 @@
 " version info of dotnvim
-let g:dotnvim = "0.0.1"
+let g:dotnvim_version = "0.0.1"
 " disable all keymaps of plugins
 let g:dotnvim_disable_mappings = 0
 " disable some plugins keymap
