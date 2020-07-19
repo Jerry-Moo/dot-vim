@@ -36,30 +36,10 @@ function! s:load_buffet() abort
     nnoremap  [b :<C-u>bn<CR>
     nnoremap <silent> <Leader>bc :Bonly<CR>
     nnoremap <silent> <Leader>bx :Bw<CR>
-    nmap <leader>1 <Plug>BuffetSwitch(1)
-    nmap <leader>2 <Plug>BuffetSwitch(2)
-    nmap <leader>3 <Plug>BuffetSwitch(3)
-    nmap <leader>4 <Plug>BuffetSwitch(4)
-    nmap <leader>5 <Plug>BuffetSwitch(5)
-    nmap <leader>6 <Plug>BuffetSwitch(6)
-    nmap <leader>7 <Plug>BuffetSwitch(7)
-    nmap <leader>8 <Plug>BuffetSwitch(8)
-    nmap <leader>9 <Plug>BuffetSwitch(9)
-    nmap <leader>0 <Plug>BuffetSwitch(10)
     if s:enable_whichkey
       let g:which_key_map.b = { 'name': '+buffer' }
       let g:which_key_map.b.c = 'keep current buffer'
       let g:which_key_map.b.x = 'remove all buffers'
-      let g:which_key_map.1 = 'select window-1'
-      let g:which_key_map.2 = 'select window-2'
-      let g:which_key_map.3 = 'select window-3'
-      let g:which_key_map.4 = 'select window-4'
-      let g:which_key_map.5 = 'select window-5'
-      let g:which_key_map.6 = 'select window-6'
-      let g:which_key_map.7 = 'select window-7'
-      let g:which_key_map.8 = 'select window-8'
-      let g:which_key_map.9 = 'select window-9'
-      let g:which_key_map.0 = 'select window-10'
     endif
   endif
 endfunction
@@ -194,12 +174,12 @@ function! s:load_coc() abort
     nmap <silent> ]a  :<C-u>CocPrev<CR>
     " Resume latest coc list
     nnoremap <silent> <Leader>'  :<C-u>CocListResume<CR>
-    " Use `[e` and `]e` for navigate diagnostics
-    nmap <silent> ]e <Plug>(coc-diagnostic-prev)
-    nmap <silent> [e <Plug>(coc-diagnostic-next)
-    " Remap for rename current word
+    " Use `[c` and `]c` for navigate diagnostics
+    nmap <silent> ]c <Plug>(coc-diagnostic-prev)
+    nmap <silent> [c <Plug>(coc-diagnostic-next)
+    " Remap for rename current word 重命名光标所在位置符号
     nmap <Leader>cn <Plug>(coc-rename)
-    " Remap for format selected region
+    " Remap for format selected region 格式化选中区间，可在正常和可视模式下工作
     vmap <Leader>cf  <Plug>(coc-format-selected)
     nmap <Leader>cf  <Plug>(coc-format-selected)
     " Fix autofix problem of current line

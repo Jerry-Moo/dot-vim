@@ -1,5 +1,5 @@
 " General settins {{{
-set mouse=nv                 " Disable mouse in command-line mode
+" set mouse=nv                 " Disable mouse in command-line mode
 set report=0                 " Don't report on line changes
 set errorbells               " Trigger bell on error
 " set visualbell               " Use visual bell instead of beeping
@@ -237,9 +237,9 @@ set shortmess=aFc								" 显示开屏系统版本信息
 set scrolloff=2									" Keep at least 2 lines above/below
 set fillchars+=vert:\|					" add a bar for vertical splits 添加垂直分隔条
 
-if has('nvim') && get(g:,'gruvbox_transp_bg',1)
-    set fcs=eob:\								" hide ~
-endif
+" if has('nvim') && get(g:,'gruvbox_transp_bg',1)
+    " set fcs=eob:\								" hide ~
+" endif
 
 set list												" 自定义tab显示样式
 " set listchars=tab:»·,nbsp:+,trail:·,extends:→,precedes:←
