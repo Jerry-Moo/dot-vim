@@ -54,10 +54,10 @@ endif
 
 call utils#source_file($VIM_PATH, 'core/packman.vim')
 call utils#source_file($VIM_PATH, 'core/general.vim')
-" call utils#source_file($VIM_PATH, 'core/filetype.vim')
+call utils#source_file($VIM_PATH, 'core/filetype.vim')
 
 " Load key map
-" call utils#source_file($VIM_PATH,'keybinds/keybinds.vim')
+call utils#source_file($VIM_PATH,'keybinds/keybinds.vim')
 
 " Initialize user favorite colorscheme
 call theme#init()

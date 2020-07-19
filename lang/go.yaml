@@ -1,0 +1,3 @@
+# Go support
+# LanguageServerProtocol used by gopls
+- { repo: hardcoreplayers/go-nvim,on_ft: [ go ,gomod ]}

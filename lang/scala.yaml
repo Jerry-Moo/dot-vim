@@ -1,0 +1,3 @@
+# Scala support
+# LanguageServerProtocol used by coc-scala
+- { repo: derekwyatt/vim-scala,on_ft: scala }

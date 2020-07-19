@@ -1,0 +1,3 @@
+# json support
+# LanguageServerProtocol for json by dotvim default
+- { repo: kevinoid/vim-jsonc, on_ft: json }

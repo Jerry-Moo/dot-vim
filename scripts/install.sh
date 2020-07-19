@@ -158,7 +158,7 @@ else
 fi
 
 ok "\n
-Congratulations thinkvim install success!!!\n
+Congratulations dotvim install success!!!\n
 Install your favorite font on here https://www.nerdfonts.com/font-downloads\n
 If you use linux,you need install ctags with janson support.\n
 Install the Lsp for your languages.\n
