@@ -230,12 +230,19 @@
 # Version control {{{
 - repo: jreybert/vimagit
   on_cmd: Magit
-  # 异步控制git存储库
-- { repo: lambdalisue/gina.vim, on_cmd: Gina }
-  # git 命令
-- repo: chemzqm/vim-easygit
-  on_cmd: [Gcd, Glcd, Gcommit, Gblame, Gstatus, Gdiff, Gbrowse, Gpush ]
-  hook_source: let g:easygit_enable_command = 1
+  hook_source: autocmd User VimagitEnterCommit startinsert
+
+- repo: rhysd/committia.vim
+  on_path: [ COMMIT_EDITMSG, MERGE_MSG ]
+  hook_source: let g:committia_min_window_width = 7
+
+- repo: tpope/vim-fugitive
+  on_cmd: [ G, Git, Gfetch, Gpush, Glog, Gclog, Gdiffsplit ]
+  hook_source:
+    augroup user_fugitive_plugin
+      autocmd!
+      autocmd FileType fugitiveblame normal A
+    augroup END
 # }}}
 
 # Neovim Lua feature {{{
@@ -307,6 +314,12 @@
 
 # TextObjectOperator {{{
 - { repo: kana/vim-textobj-user , on_func: textobj#user# }
+
+- { repo: terryma/vim-expand-region, on_map: { x: <Plug> }}
+
+- repo: kana/vim-smartchr
+  on_event: InsertCharPre
+
 # 增加行文本对象: l   dal yal cil
 - repo: kana/vim-textobj-line
   depends: vim-textobj-user

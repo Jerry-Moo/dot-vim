@@ -172,7 +172,7 @@ function! s:load_coc() abort
     nmap <silent> [a  :<C-u>CocNext<CR>
     " Do default action for previous item.
     nmap <silent> ]a  :<C-u>CocPrev<CR>
-    " Resume latest coc list
+    " Resume latest coc list 重新打开上一次的列表，输入字符和鼠标位置等信息将自动复原
     nnoremap <silent> <Leader>'  :<C-u>CocListResume<CR>
     " Use `[c` and `]c` for navigate diagnostics
     nmap <silent> ]c <Plug>(coc-diagnostic-prev)
@@ -436,19 +436,34 @@ endfunction
 
 function! s:load_vista() abort
   if dein#tap('vista.vim')
-    nnoremap <silent> <Leader>i :<C-u>Vista!!<CR>
+    nnoremap <silent> <Leader>v :<C-u>Vista!!<CR>
     if s:enable_whichkey
-      let g:which_key_map.i = 'Vista'
+      let g:which_key_map.v = 'Vista'
     endif
   endif
 endfunction
 
 function! s:load_easymotion() abort
   if dein#tap('vim-easymotion')
-    nmap gsj <Plug>(easymotion-w)
-    nmap gsk <Plug>(easymotion-b)
-    nmap gsf <Plug>(easymotion-overwin-f)
-    nmap gss <Plug>(easymotion-overwin-f2)
+    nmap <leader><leader>w <Plug>(easymotion-w)
+    nmap <leader><leader>f <Plug>(easymotion-f)
+    nmap <leader><leader>b <Plug>(easymotion-b)
+    nmap <leader><leader>h <Plug>(easymotion-linebackward)
+    nmap <leader><leader>j <Plug>(easymotion-j)
+    nmap <leader><leader>k <Plug>(easymotion-k)
+    nmap <leader><leader>l <Plug>(easymotion-lineforward)
+    if s:enable_whichkey
+      let g:which_key_map[' '] = {
+      \ 'name' : 'easymotion-jumpto-word ' ,
+      \ 'b' : ['<plug>(easymotion-b)' , 'beginning of word backward'],
+      \ 'f' : ['<plug>(easymotion-f)' , 'find {char} to the left'],
+      \ 'h' : ['<plug>(easymotion-h)' , 'beginning of linebackward'],
+      \ 'j' : ['<plug>(easymotion-j)' , 'beginning of bottom line'],
+      \ 'k' : ['<plug>(easymotion-k)' , 'beginning of top line'],
+      \ 'l' : ['<plug>(easymotion-l)' , 'beginning of lineforward'],
+      \ 'w' : ['<plug>(easymotion-w)' , 'beginning of word forward'],
+      \ }
+    endif
   endif
 endfunction
 
@@ -502,28 +517,6 @@ function! s:load_iron() abort
   endif
 endfunction
 
-function! s:load_sandwich() abort
-  if dein#tap('vim-sandwich')
-    nmap <silent> sa <Plug>(operator-sandwich-add)
-    xmap <silent> sa <Plug>(operator-sandwich-add)
-    omap <silent> sa <Plug>(operator-sandwich-g@)
-    nmap <silent> sd <Plug>(operator-sandwich-delete)<Plug>(operator-sandwich-release-count)<Plug>(textobj-sandwich-query-a)
-    xmap <silent> sd <Plug>(operator-sandwich-delete)
-    nmap <silent> sr <Plug>(operator-sandwich-replace)<Plug>(operator-sandwich-release-count)<Plug>(textobj-sandwich-query-a)
-    xmap <silent> sr <Plug>(operator-sandwich-replace)
-    nmap <silent> sdb <Plug>(operator-sandwich-delete)<Plug>(operator-sandwich-release-count)<Plug>(textobj-sandwich-auto-a)
-    nmap <silent> srb <Plug>(operator-sandwich-replace)<Plug>(operator-sandwich-release-count)<Plug>(textobj-sandwich-auto-a)
-    omap ib <Plug>(textobj-sandwich-auto-i)
-    xmap ib <Plug>(textobj-sandwich-auto-i)
-    omap ab <Plug>(textobj-sandwich-auto-a)
-    xmap ab <Plug>(textobj-sandwich-auto-a)
-    omap is <Plug>(textobj-sandwich-query-i)
-    xmap is <Plug>(textobj-sandwich-query-i)
-    omap as <Plug>(textobj-sandwich-query-a)
-    xmap as <Plug>(textobj-sandwich-query-a)
-  endif
-endfunction
-
 if dein#tap('vim-asterisk')
   map *   <Plug>(asterisk-g*)
   map g*  <Plug>(asterisk-*)
@@ -536,38 +529,9 @@ if dein#tap('vim-asterisk')
   map gz# <Plug>(asterisk-gz#)
 endif
 
-if dein#tap('vim-niceblock')
-  silent! xmap I  <Plug>(niceblock-I)
-  silent! xmap gI <Plug>(niceblock-gI)
-  silent! xmap A  <Plug>(niceblock-A)
-endif
-
 if dein#tap('vim-expand-region')
   xmap v <Plug>(expand_region_expand)
   xmap V <Plug>(expand_region_shrink)
-endif
-
-if dein#tap('dsf.vim')
-  nmap dsf <Plug>DsfDelete
-  nmap csf <Plug>DsfChange
-endif
-
-if dein#tap('splitjoin.vim')
-  let g:splitjoin_join_mapping = ''
-  let g:splitjoin_split_mapping = ''
-  nmap sj :SplitjoinJoin<CR>
-  nmap sk :SplitjoinSplit<CR>
-endif
-
-if dein#tap('vim-operator-replace')
-  xmap p <Plug>(operator-replace)
-endif
-
-if dein#tap('vim-textobj-multiblock')
-  omap <silent> ab <Plug>(textobj-multiblock-a)
-  omap <silent> ib <Plug>(textobj-multiblock-i)
-  xmap <silent> ab <Plug>(textobj-multiblock-a)
-  xmap <silent> ib <Plug>(textobj-multiblock-i)
 endif
 
 if dein#tap('vim-textobj-function')
@@ -575,6 +539,13 @@ if dein#tap('vim-textobj-function')
   omap <silent> if <Plug>(textobj-function-i)
   xmap <silent> af <Plug>(textobj-function-a)
   xmap <silent> if <Plug>(textobj-function-i)
+endif
+
+if dein#tap('vim-easy-align')
+  " Start interactive EasyAlign in visual mode (e.g. vipga)
+  xmap ga <Plug>(EasyAlign)
+  " Start interactive EasyAlign for a motion/text object (e.g. gaip)
+  nmap ga <Plug>(EasyAlign)
 endif
 
 function! s:load_normalmap() abort
@@ -590,10 +561,6 @@ function! s:load_normalmap() abort
   if s:enable_whichkey
     let g:which_key_map.c.w = 'Remove whitespace'
   endif
-  "GetColorSynatxGroup
-  map <F10> :echo "hi<" . synIDattr(synID(line("."),col("."),1),"name") . '> trans<'
-        \ . synIDattr(synID(line("."),col("."),0),"name") . "> lo<"
-        \ . synIDattr(synIDtrans(synID(line("."),col("."),1)),"name") . ">"<CR>
 endfunction
 
 function! s:load_insertmap() abort
@@ -653,39 +620,28 @@ function! s:load_windowmap() abort
   nnoremap <C-l> <C-w>l
   nnoremap <C-j> <C-w>j
   nnoremap <C-k> <C-w>k
-  " window
-  nnoremap <Leader><TAB> <C-O><CR>
-  nnoremap <leader>ws :<C-u>sp<CR>
-  nnoremap <leader>wv :<C-u>vs<CR>
-  nnoremap <leader>wh <C-w>h
-  nnoremap <leader>wj <C-w>j
-  nnoremap <leader>wk <C-w>k
-  nnoremap <leader>wl <C-w>l
-  nnoremap <leader>wH <C-w>H
-  nnoremap <leader>wJ <C-w>J
-  nnoremap <leader>wK <C-w>K
-  nnoremap <leader>wL <C-w>L
-  nnoremap <leader>wx <C-w>x
-  nnoremap <leader>wc <C-w>c
-  nnoremap <leader>wo <C-w>o
-  nnoremap <leader>wR <C-w>R
+  " tab 标签页切换快捷键
+  nnoremap <leader>1 1gt
+  nnoremap <leader>2 2gt
+  nnoremap <leader>3 3gt
+  nnoremap <leader>4 4gt
+  nnoremap <leader>5 5gt
+  nnoremap <leader>6 6gt
+  nnoremap <leader>7 7gt
+  nnoremap <leader>8 8gt
+  nnoremap <leader>9 8gt
+  nnoremap <leader>0 :tablast<CR>
   if s:enable_whichkey
-    let g:which_key_map.w = { 'name': '+window'}
-    let g:which_key_map['<Tab>'] = 'switch to last buffer'
-    let g:which_key_map.w.s = 'horizontally split'
-    let g:which_key_map.w.v = 'vertical split'
-    let g:which_key_map.w.h = 'jump left window'
-    let g:which_key_map.w.j = 'jump bottom window'
-    let g:which_key_map.w.k = 'jump top window'
-    let g:which_key_map.w.l = 'jump right window'
-    let g:which_key_map.w.H = 'move window to left'
-    let g:which_key_map.w.J = 'move window to bottom'
-    let g:which_key_map.w.K = 'move window to top'
-    let g:which_key_map.w.L = 'move window to right'
-    let g:which_key_map.w.x = 'swap window'
-    let g:which_key_map.w.c = 'close window'
-    let g:which_key_map.w.o = 'close other window'
-    let g:which_key_map.w.R = 'spin window'
+    let g:which_key_map.1 = 'select window-1'
+    let g:which_key_map.2 = 'select window-2'
+    let g:which_key_map.3 = 'select window-3'
+    let g:which_key_map.4 = 'select window-4'
+    let g:which_key_map.5 = 'select window-5'
+    let g:which_key_map.6 = 'select window-6'
+    let g:which_key_map.7 = 'select window-7'
+    let g:which_key_map.8 = 'select window-8'
+    let g:which_key_map.9 = 'select window-9'
+    let g:which_key_map.0 = 'select window-10'
   endif
   " settings for resize splitted window
   nmap <C-w>[ :vertical resize -3<CR>
@@ -727,7 +683,7 @@ let s:plugins = {
   \ 'choosewin':'vim-choosewin','caw':'caw.vim','smoothie':'vim-smoothie',
   \ 'goyo':'goyo.vim','defx':'defx.nvim','quickrun':'vim-quickrun',
   \ 'easymotion':'vim-easymotion', 'smartchr':'vim-smartchr','iron':'iron.nvim',
-  \ 'sandwich':'vim-sandwich', 'dashboard':'dashboard-nvim', 'fugitive': 'vim-fugitive',
+  \ 'dashboard':'dashboard-nvim', 'fugitive': 'vim-fugitive',
   \ 'mundo':'vim-mundo', 'vista':'vista.vim','insertmap': 'insert',
   \ 'commandmap':'command','quitmap':'quit','windowmap':'window','session':'session',
   \ 'toggle':'toggle','normalmap':'normal','terminalmap':'terminal','bufkill':'bufkill',
