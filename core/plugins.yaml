@@ -230,19 +230,12 @@
 # Version control {{{
 - repo: jreybert/vimagit
   on_cmd: Magit
-  hook_source: autocmd User VimagitEnterCommit startinsert
-
-- repo: rhysd/committia.vim
-  on_path: [ COMMIT_EDITMSG, MERGE_MSG ]
-  hook_source: let g:committia_min_window_width = 7
-
-- repo: tpope/vim-fugitive
-  on_cmd: [ G, Git, Gfetch, Gpush, Glog, Gclog, Gdiffsplit ]
-  hook_source:
-    augroup user_fugitive_plugin
-      autocmd!
-      autocmd FileType fugitiveblame normal A
-    augroup END
+  # 异步控制git存储库
+- { repo: lambdalisue/gina.vim, on_cmd: Gina }
+  # git 命令
+- repo: chemzqm/vim-easygit
+  on_cmd: [Gcd, Glcd, Gcommit, Gblame, Gstatus, Gdiff, Gbrowse, Gpush ]
+  hook_source: let g:easygit_enable_command = 1
 # }}}
 
 # Neovim Lua feature {{{
@@ -258,7 +251,7 @@
   if: has('nvim-0.4')
   on_ft: [ html,css,sass,scss,stylus,vim,javascript,javascriptreact,typescript,typescriptreact ]
   hook_source: luafile $VIM_PATH/modules/module-colorizer.lua
-# }}}  
+# }}}
 
 # Coding{{{
 - repo: tyru/caw.vim

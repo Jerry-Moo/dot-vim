@@ -1,6 +1,5 @@
 # Go support
 # LanguageServerProtocol used by gopls
-# autocmd BufWritePre *.go :call CocAction('runCommand', 'editor.action.organizeImport')
 - repo: fatih/vim-go
   on_ft: go
   hook_source: |
