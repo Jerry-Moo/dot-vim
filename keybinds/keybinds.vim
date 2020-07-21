@@ -541,12 +541,14 @@ if dein#tap('vim-textobj-function')
   xmap <silent> if <Plug>(textobj-function-i)
 endif
 
-if dein#tap('vim-easy-align')
-  " Start interactive EasyAlign in visual mode (e.g. vipga)
-  xmap ga <Plug>(EasyAlign)
-  " Start interactive EasyAlign for a motion/text object (e.g. gaip)
-  nmap ga <Plug>(EasyAlign)
-endif
+function! s:load_easy_align() abort
+  if dein#tap('vim-easy-align')
+    " Start interactive EasyAlign in visual mode (e.g. vipga)
+    xmap ga <Plug>(EasyAlign)
+    " Start interactive EasyAlign for a motion/text object (e.g. gaip)
+    nmap ga <Plug>(EasyAlign)
+  endif
+endfunction
 
 function! s:load_normalmap() abort
   " Write buffer (save)
@@ -687,6 +689,7 @@ let s:plugins = {
   \ 'mundo':'vim-mundo', 'vista':'vista.vim','insertmap': 'insert',
   \ 'commandmap':'command','quitmap':'quit','windowmap':'window','session':'session',
   \ 'toggle':'toggle','normalmap':'normal','terminalmap':'terminal','bufkill':'bufkill',
+  \ 'easy_align': 'vim-easy-align',
   \ }
 
 function! s:load_plugins_keybinds(pmap) abort

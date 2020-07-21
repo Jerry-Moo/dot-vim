@@ -9,9 +9,9 @@ generator="$HOME/.config/nvim/bin/generator"
 action "Running Clean up..."
 
 running "Remove the .dotvim.d folder"
-rm -rf dotvim_personal
+rm -rf $dotvim_personal
 
 running "Remove the plugins install folder"
-rm -rf cache_vim
+rm -rf $cache_vim
 
 ok "Clean up Success"

@@ -1,5 +1,5 @@
 " Gopls config
-if dein#tap('go-nvim')
+if dein#tap('vim-go')
     call coc#config('languageserver', {
       \ 'golang': {
         \ "command": "gopls",
