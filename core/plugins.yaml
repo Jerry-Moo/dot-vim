@@ -167,7 +167,7 @@
     endfunction
     call s:register_whichkey()
 
-# 更高效的移动 [leader+leader+f,leader+leader+b,leader+leader+w]
+# [leader+leader+f,leader+leader+b,leader+leader+w]
 - repo: easymotion/vim-easymotion
   on_map: { n: <Plug> }
   hook_source: |
@@ -274,7 +274,7 @@
 
 - repo: sbdchd/neoformat
   on_cmd: [Neoformat,Neoformat!]
-  hook_source: source  $VIM_PATH/modules/modules-neoformat.vim
+  hook_source: source  $VIM_PATH/modules/module-neoformat.vim
 
 - repo: Yggdroot/indentLine
   on_event: BufReadPre

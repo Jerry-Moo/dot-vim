@@ -28,8 +28,6 @@ if has('vim_starting')
 	scriptencoding utf-8
 endif
 
-
-
 " What to save for views and sessions:
 set viewoptions=folds,cursor,curdir,slash,unix
 set sessionoptions=curdir,help,tabpages,winsize
@@ -48,6 +46,7 @@ if has('mac')
 		\   'cache_enabled': 0,
 		\ }
 endif
+
 if has('clipboard')
 	set clipboard& clipboard+=unnamedplus
 endif
@@ -260,6 +259,7 @@ set winwidth=30         " Minimum width for active window
 set winminwidth=10      " Minimum width for inactive windows
 " set winheight=4         " Minimum height for active window
 set winminheight=1      " Minimum height for inactive window
+
 " 弹出菜单的行数
 set pumheight=15        " Pop-up menu's line height
 set helpheight=12       " Minimum help window height

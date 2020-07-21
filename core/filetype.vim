@@ -62,6 +62,8 @@ augroup user_plugin_filetype " {{{
   " Make directory automatically. 自动创建目录
   autocmd BufWritePre * call s:mkdir_as_necessary(expand('<afile>:p:h'), v:cmdbang)
 
+  autocmd BufWritePre *.py,*.js,*.jsx,*.less,*.css,*.html Neoformat
+
 augroup END " }}}
 
 " Credits: https://github.com/Shougo/shougo-s-github/blob/master/vim/rc/options.rc.vim#L147

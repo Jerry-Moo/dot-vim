@@ -12,6 +12,11 @@ endif
 " Set main configuration directory as parent directory
 let $VIM_PATH = fnamemodify(resolve(expand('<sfile>:p')), ':h:h')
 
+let $DOTVIM = expand($HOME.'/.dotvim.d')
+
+" set the user config file
+let s:user_init_config = expand($DOTVIM.'/init.vim')
+
 " Disable vim distribution plugins
 let g:loaded_gzip = 1
 let g:loaded_tar = 1
@@ -62,6 +67,9 @@ call utils#source_file($VIM_PATH,'keybinds/keybinds.vim')
 " Initialize user favorite colorscheme
 call theme#init()
 
+if exists("*UserInit")
+    call UserInit()
+endif
 
 set secure
 
