@@ -270,7 +270,7 @@ set cmdheight=2         " Height of the command line
 set cmdwinheight=5      " Command-line lines
 set equalalways         " resize windows on split or close 在拆分或关闭时调整窗口大小
 set laststatus=2        " 总是显示底部状态行
-" set statusline=-        " hide file name in statusline 隐藏侧边栏 一般 git 代码检查
+set statusline=-        " hide file name in statusline 隐藏侧边栏 一般 git 代码检查
 set colorcolumn=120      " Column highlight at textwidth's max character-limit
 set display=lastline
 
