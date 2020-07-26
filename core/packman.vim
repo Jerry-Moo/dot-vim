@@ -78,7 +78,7 @@ function! s:main()
 			endif
 			if empty(l:virtualenv) || ! filereadable(l:virtualenv)
 				" Fallback to old virtualenv location
-				let l:virtualenv = $DATA_PATH . '/venv/neovim3/bin/python'
+				let l:virtualenv = $DATA_PATH . '/venv/bin/python'
 			endif
 			if filereadable(l:virtualenv)
 				let g:python3_host_prog = l:virtualenv
