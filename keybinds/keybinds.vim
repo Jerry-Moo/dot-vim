@@ -633,6 +633,22 @@ function! s:load_windowmap() abort
   nnoremap <leader>8 8gt
   nnoremap <leader>9 8gt
   nnoremap <leader>0 :tablast<CR>
+  " window
+  nnoremap <Leader><TAB> <C-O><CR>
+  nnoremap <leader>ws :<C-u>sp<CR>
+  nnoremap <leader>wv :<C-u>vs<CR>
+  nnoremap <leader>wh <C-w>h
+  nnoremap <leader>wj <C-w>j
+  nnoremap <leader>wk <C-w>k
+  nnoremap <leader>wl <C-w>l
+  nnoremap <leader>wH <C-w>H
+  nnoremap <leader>wJ <C-w>J
+  nnoremap <leader>wK <C-w>K
+  nnoremap <leader>wL <C-w>L
+  nnoremap <leader>wx <C-w>x
+  nnoremap <leader>wc <C-w>c
+  nnoremap <leader>wo <C-w>o
+  nnoremap <leader>wR <C-w>R
   if s:enable_whichkey
     let g:which_key_map.1 = 'select window-1'
     let g:which_key_map.2 = 'select window-2'
@@ -644,6 +660,23 @@ function! s:load_windowmap() abort
     let g:which_key_map.8 = 'select window-8'
     let g:which_key_map.9 = 'select window-9'
     let g:which_key_map.0 = 'select window-10'
+
+    let g:which_key_map.w = { 'name': '+window'}
+    let g:which_key_map['<Tab>'] = 'switch to last buffer'
+    let g:which_key_map.w.s = 'horizontally split'
+    let g:which_key_map.w.v = 'vertical split'
+    let g:which_key_map.w.h = 'jump left window'
+    let g:which_key_map.w.j = 'jump bottom window'
+    let g:which_key_map.w.k = 'jump top window'
+    let g:which_key_map.w.l = 'jump right window'
+    let g:which_key_map.w.H = 'move window to left'
+    let g:which_key_map.w.J = 'move window to bottom'
+    let g:which_key_map.w.K = 'move window to top'
+    let g:which_key_map.w.L = 'move window to right'
+    let g:which_key_map.w.x = 'swap window'
+    let g:which_key_map.w.c = 'close window'
+    let g:which_key_map.w.o = 'close other window'
+    let g:which_key_map.w.R = 'spin window'
   endif
   " settings for resize splitted window
   nmap <C-w>[ :vertical resize -3<CR>
