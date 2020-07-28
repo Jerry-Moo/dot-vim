@@ -305,10 +305,10 @@ endif
 " neovim && vim8.2 悬浮窗口
 if &termguicolors " Pseudo-transparency for completion menu and floating windows
     if exists('&pumblend')
-	set pumblend=20
+	set pumblend=10
     endif
     if exists('&winblend')
-	set winblend=20
+	set winblend=10
     endif
 endif
 
