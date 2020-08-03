@@ -555,6 +555,12 @@ function! s:load_normalmap() abort
   nnoremap <C-s> :<C-u>write<CR>
   "yank to end
   nnoremap Y y$
+  " Go to home and ned using capitalised directory
+  nnoremap H ^
+  nnoremap L $
+  " 调整缩进后自动选中 方便再次操作
+  vnoremap < <gv
+  vnoremap > >gv
   " Whitespace jump (see plugin/whitespace.vim)
   nnoremap ]w :<C-u>WhitespaceNext<CR>
   nnoremap [w :<C-u>WhitespacePrev<CR>
@@ -649,6 +655,7 @@ function! s:load_windowmap() abort
   nnoremap <leader>wc <C-w>c
   nnoremap <leader>wo <C-w>o
   nnoremap <leader>wR <C-w>R
+  nnoremap <leader>wn :tabnew<CR>
   if s:enable_whichkey
     let g:which_key_map.1 = 'select window-1'
     let g:which_key_map.2 = 'select window-2'
@@ -677,6 +684,7 @@ function! s:load_windowmap() abort
     let g:which_key_map.w.c = 'close window'
     let g:which_key_map.w.o = 'close other window'
     let g:which_key_map.w.R = 'spin window'
+    let g:which_key_map.w.n = 'new window'
   endif
   " settings for resize splitted window
   nmap <C-w>[ :vertical resize -3<CR>
