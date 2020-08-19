@@ -272,9 +272,9 @@
          call echodoc#enable()
          let g:echodoc#type = "virtual"
 
-# - repo: sbdchd/neoformat
-#   on_cmd: [Neoformat,Neoformat!]
-#   hook_source: source  $VIM_PATH/modules/module-neoformat.vim
+- repo: sbdchd/neoformat
+  on_cmd: [Neoformat,Neoformat!]
+  hook_source: source  $VIM_PATH/modules/module-neoformat.vim
 
 - repo: Yggdroot/indentLine
   on_event: BufReadPre

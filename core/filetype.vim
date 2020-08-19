@@ -62,7 +62,7 @@ augroup user_plugin_filetype " {{{
   " Make directory automatically. 自动创建目录
   autocmd BufWritePre * call s:mkdir_as_necessary(expand('<afile>:p:h'), v:cmdbang)
 
-  autocmd BufWritePre *.py,*.js,*.jsx,*.less,*.css,*.html Neoformat
+  autocmd BufWritePre *.js,*.jsx,*.less,*.css,*.html Neoformat
 
 augroup END " }}}
 
