@@ -32,12 +32,14 @@
 # Completion {{{
 - repo: neoclide/coc.nvim
   merged: 0
-  build: 'yarn install --frozen-lockfile'
+  rev: 'release'
   hook_add: source  $VIM_PATH/modules/module-coc.vim
   hook_source: source $VIM_PATH/modules/module-lsp.vim
 
 - repo: honza/vim-snippets
   depends : coc.nvim
+  if: has('python3')
+  merged: 0
 
 # }}}
 
@@ -292,6 +294,7 @@
     let g:user_emmet_install_global = 0
     let g:user_emmet_install_command = 0
     let g:user_emmet_mode = 'i'
+
 - repo: luochen1990/rainbow
   on_ft: [ html,css,javascript,javascriptreact,vue,go,python,c,cpp,lua,rust,vim,less,stylus,sass,scss,json,ruby,scala,toml,php,haskell]
   hook_source: let g:rainbow_active = 1

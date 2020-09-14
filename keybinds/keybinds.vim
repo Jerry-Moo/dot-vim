@@ -88,6 +88,7 @@ endfunction
 function! s:load_floaterm() abort
   if dein#tap('vim-floaterm')
     nnoremap <silent> <Leader>ot :<C-u>FloatermToggle<CR>
+    tnoremap <silent> <Leader>ot <C-\><C-n>:FloatermToggle<CR>
     nnoremap <silent> <Leader>gz :<C-u>FloatermNew height=0.7 width=0.8 lazygit<CR>
     if s:enable_whichkey
       let g:which_key_map.o.t = 'open terminal'
@@ -150,8 +151,8 @@ function! s:load_coc() abort
       let g:which_key_map.c.o = 'Lsp Organize Import'
       let g:which_key_map.g.i = 'Show chunk diff at point'
       let g:which_key_map.g.m = 'Show commit contains at point'
-      let g:which_key_map.j = 'open coc-exoplorer'
-      let g:which_key_map.f.z = 'find word on multipe files'
+      let g:which_key_map.j = 'open coc-explorer'
+      let g:which_key_map.f.z = 'find word on multiple files'
     endif
     " Remap for do codeAction of selected region
     function! s:cocActionsOpenFromSelected(type) abort
