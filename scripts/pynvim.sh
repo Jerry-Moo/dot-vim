@@ -27,12 +27,12 @@ _try_pyenv() {
 }
 
 _try_python() {
-	if ! hash python3 2>/dev/null; then
+	if ! hash python3.9 2>/dev/null; then
 		warn '===> python3 not found, skipping'
 		return 1
 	fi
 	ok "===> python3 found"
-	[ -d "${__venv}" ] || python3 -m venv "${__venv}"
+	[ -d "${__venv}" ] || python3.9 -m venv "${__venv}"
 }
 
 Install_Pynvim() {

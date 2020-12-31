@@ -20,7 +20,7 @@ let g:clap_provider_personalconf = {
 " A funtion to config highlight of ClapSymbol
 " when the background color is opactiy
 function! s:ClapSymbolHL() abort
-    let s:current_bgcolor = synIDattr(hlID("Normal"), "rg")
+    let s:current_bgcolor = synIDattr(hlID("Normal"), "bg")
     if s:current_bgcolor == ''
         hi ClapSymbol guibg=NONE ctermbg=NONE
     endif
