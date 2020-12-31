@@ -137,7 +137,7 @@ augroup END
 
 " Tabs and Indents {{{
 " set textwidth=80    " Text width maximum chars before wrapping
-set expandtab " 不出现制表符 tab键转为空格
+set expandtab					" 不出现制表符 tab键转为空格
 " set noexpandtab     " Don't expand tabs to spaces
 set tabstop=2         " The number of spaces a tab is <Tab>在文件里使用的空格数2
 set shiftwidth=2      " Number of spaces to use in auto(indent) (自动) 缩进使用的步进单位，以空白数目计
@@ -208,6 +208,11 @@ set sidescrolloff=2							" Keep at least 2 lines left/right
 if exists('+completepopup')
 	set completeopt+=popup
 	set completepopup=height:4,width:60,highlight:InfoPopup
+endif
+
+" Use the new Neovim :h jumplist-stack
+if has('nvim-0.5')
+	set jumpoptions=stack
 endif
 
 if has('patch-8.1.0360') || has('nvim-0.4')
@@ -283,8 +288,8 @@ if has('folding')
     " syntax    使用语法定义折叠
     " diff      对没有更改的文本进行折叠
     " marker    使用标记进行折叠, 默认标记是 {{{ 和 }}}
-    set foldmethod=indent " 语法高亮来定义折叠
-    set foldlevelstart=99  " 关闭vim默认折叠
+    set foldmethod=syntax " 语法高亮来定义折叠
+    set foldlevelstart=3  " 关闭vim默认折叠
 endif
 
 if has('nvim-0.4')

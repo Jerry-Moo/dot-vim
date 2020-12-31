@@ -55,16 +55,66 @@ function! utils#load_env()
 endfunction
 
 " Load database connection from env file
-function! utils#load_db_from_env()
-  let l:env = initself#load_env()
-  let l:dbs = {}
-  for key in keys(l:env)
-    if stridx(key, "DB_CONNECTION_") > 0
-      let l:dbs[split(key, "_")[2]] = l:env[key]
-    endif
-  endfor
-  if empty(l:dbs)
-    echo "Env Database config error"
-  endif
-  return l:dbs
+function! s:lsp_init(langs)
+  let l:lsp={
+    \'go':{'golang': {
+          \ "command": "gopls",
+          \ "rootPatterns": ["go.mod"],
+          \ "disableWorkspaceFolders": "true",
+          \ "filetypes": ["go"]
+          \ }
+          \ },
+    \'dockerfile':{'dockerfile': {
+          \ "command": "docker-langserver",
+          \ "filetypes": ["dockerfile"],
+          \ "args": ["--stdio"]
+          \ }
+          \ },
+    \'sh':{'bash': {
+          \ "command": "bash-language-server",
+          \ "args": ["start"],
+          \ "filetypes": ["sh"],
+          \ "ignoredRootPaths": ["~"]
+          \ }
+          \ },
+    \'c/cpp':{'ccls': {
+        \ "command": "ccls",
+        \ "rootPatterns": [".ccls", "compile_commands.json", ".git/", ".hg/"],
+        \ "filetypes": ["c","cpp","objc","objcpp"],
+        \ "initializationOptions": {
+          \ "cache":{
+            \ "directory": "/tmp/ccls"
+        \ }
+        \ }
+        \ }
+        \},
+    \'haskell':{'haskell': {
+        \ "command": "hie-wrapper",
+        \ "rootPatterns": [".stack.yaml","cabal.config","package.yaml"],
+        \ "filetypes": ["hs","lhs","haskell"],
+        \ "initializationOptions":{},
+        \ "settings":{
+          \ "languageServerHaskell":{
+            \ "hlintOn":"true",
+            \ "maxNumberOfProblems":10,
+            \ "completionSnippetsOn": "true"
+        \ }
+        \ }
+        \ }
+        \},
+    \'php':{'intelephense': {
+        \ "command": "intelephense",
+        \ "args": ["--stdio"],
+        \ "filetypes": ["php"],
+        \ "initializationOptions": {
+             \ "storagePath": "/tmp/intelephense"
+        \ }
+        \ }
+        \},
+    \}[a:langs]
+  call coc#config('languageserver',l:lsp)
+  exec 'autocmd BufWritePre *.'.a:langs
 endfunction
+
+
+command! -nargs=+ -bar LSP          call s:lsp_init(<args>)

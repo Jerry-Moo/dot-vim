@@ -61,6 +61,10 @@ call utils#source_file($VIM_PATH, 'core/packman.vim')
 call utils#source_file($VIM_PATH, 'core/general.vim')
 call utils#source_file($VIM_PATH, 'core/filetype.vim')
 
+
+" Load user init config
+call utils#check_source(s:user_init_config)
+
 " Load key map
 call utils#source_file($VIM_PATH,'keybinds/keybinds.vim')
 
