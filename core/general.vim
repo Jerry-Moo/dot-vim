@@ -289,7 +289,7 @@ if has('folding')
     " diff      对没有更改的文本进行折叠
     " marker    使用标记进行折叠, 默认标记是 {{{ 和 }}}
     set foldmethod=syntax " 语法高亮来定义折叠
-    set foldlevelstart=3  " 关闭vim默认折叠
+    set foldlevelstart=99  " 关闭vim默认折叠
 endif
 
 if has('nvim-0.4')
