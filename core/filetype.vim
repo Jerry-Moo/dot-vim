@@ -64,6 +64,9 @@ augroup user_plugin_filetype " {{{
 
   autocmd BufWritePre *.js,*.jsx,*.less,*.css,*.html Neoformat
 
+  " JSON 冒号 indentLine
+  autocmd FileType json,markdown let g:indentLine_conceallevel = 0
+
 augroup END " }}}
 
 " Credits: https://github.com/Shougo/shougo-s-github/blob/master/vim/rc/options.rc.vim#L147
