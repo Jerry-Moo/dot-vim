@@ -50,12 +50,6 @@ function! s:load_bufkill() abort
   nmap <silent> <Leader>bp    <Plug>BufKillForward
   nmap <silent> <Leader>bd    <Plug>BufKillBd
   nmap <silent> <Leader>bu    <Plug>BufKillUndo
-  if s:enable_whichkey
-    let g:which_key_map.b.n = 'Next Buffer'
-    let g:which_key_map.b.p = 'Prev Buffer'
-    let g:which_key_map.b.d = 'Kill Buffer'
-    let g:which_key_map.b.u = 'Undo Kill'
-  endif
 endfunction
 
 function! s:load_dashboard() abort
@@ -263,7 +257,6 @@ function! s:load_clap() abort
     nnoremap <silent> <Leader>oc :<C-u>Clap personalconf<CR>
     if s:enable_whichkey
       let g:which_key_map.t.c = 'Change Colorscheme'
-      let g:which_key_map.b.b = 'Buffer List'
       let g:which_key_map.f.a = 'Find Word'
       let g:which_key_map.f.b = 'Find Marks'
       let g:which_key_map.f.f = 'Find File'
