@@ -1,2 +1,2 @@
 # Sql support
-- { repo: hardcoreplayers/sql.vim, on_ft: sql }
+# - { repo: hardcoreplayers/sql.vim, on_ft: sql }

@@ -6,6 +6,8 @@
 # Editor UI{{{
 - repo: ryanoasis/vim-devicons
 
+- repo: ap/vim-buftabline
+
 - repo: hardcoreplayers/oceanic-material
 
 - repo: hardcoreplayers/spaceline.vim
