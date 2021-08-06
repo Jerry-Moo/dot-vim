@@ -312,7 +312,7 @@ function! s:load_fugitive() abort
     nnoremap <silent> <Leader>gd :Gdiffsplit<CR>
     nnoremap <silent> <Leader>gc :Git commit<CR>
     nnoremap <silent> <Leader>gb :Git blame<CR>
-    nnoremap <silent> <Leader>gf :Gfetch<CR>
+    nnoremap <silent> <Leader>gf :Git fetch<CR>
     nnoremap <silent> <Leader>gs :Git<CR>
     nnoremap <silent> <Leader>gp :Gpush<CR>
     if s:enable_whichkey
