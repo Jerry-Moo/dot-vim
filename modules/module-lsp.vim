@@ -12,8 +12,7 @@ endif
 "python lsp config
 if dein#tap('python-syntax')
     let g:python_highlight_all = 1
-    " call coc#add_extension('coc-python')
-    call coc#add_extension('coc-jedi')
+    call coc#add_extension('coc-pyright')
 endif
 
 "docker lsp config
