@@ -248,12 +248,12 @@ function! s:load_clap() abort
     nnoremap <silent> <C-x><C-f> :<C-u>Clap filer<CR>
     nnoremap <silent> <Leader>ff :<C-u>Clap files ++finder=rg --ignore --hidden --files<cr>
     nnoremap <silent> <Leader>fg :<C-u>Clap gfiles<CR>
-    nnoremap <silent> <Leader>fw :<C-u>Clap grep ++query=<cword><cr>
+    nnoremap <silent> <Leader>fw :<C-u>Clap grep2 ++query=<cword><cr>
     nnoremap <silent> <Leader>fh :<C-u>Clap history<CR>
     nnoremap <silent> <Leader>fW :<C-u>Clap windows<CR>
     nnoremap <silent> <Leader>fl :<C-u>Clap loclist<CR>
     nnoremap <silent> <Leader>fu :<C-u>Clap git_diff_files<CR>
-    nnoremap <silent> <Leader>fv :<C-u>Clap grep ++query=@visual<CR>
+    nnoremap <silent> <Leader>fv :<C-u>Clap grep2 ++query=@visual<CR>
     nnoremap <silent> <Leader>oc :<C-u>Clap personalconf<CR>
     if s:enable_whichkey
       let g:which_key_map.t.c = 'Change Colorscheme'
